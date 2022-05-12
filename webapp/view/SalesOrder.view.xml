@@ -1,0 +1,127 @@
+<mvc:View xmlns:form="sap.ui.layout.form" xmlns:f="sap.ui.layout.form" controllerName="dynasys.com.hk.demo.controller.SalesOrder"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page id="page" title="{i18n>title}">
+				<content>
+					<form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+						<Label text="Sales Order No."></Label>
+						<Input id="oVbeln" value="60000003"></Input>
+						<Button text="Search" type="Emphasized" press="getSalesOrderInfo"></Button>
+						<Button text="Create" type="Emphasized" press="createSalesOrderInfo"></Button>
+						<Button text="Update" type="Emphasized" press="updateSalesOrderInfo"></Button>
+						<Button text="Detele" type="Emphasized" press="deteleSalesOrder"></Button>
+					</form:SimpleForm>
+					<Panel headerText="{i18n>headInfo}" expandable="true" expanded="true">
+						<f:Form editable="true">
+							<f:layout>
+								<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+									emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+							</f:layout>
+							<f:formContainers>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement label="{/#SalesOrderHeader/Vbeln/@sap:label}">
+											<f:fields>
+												<Text text="{SO>/Vbeln}"></Text>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{/#SalesOrderHeader/Ernam/@sap:label}">
+											<f:fields>
+												<Text text="{SO>/Ernam}"></Text>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{/#SalesOrderHeader/Erdat/@sap:label}">
+											<f:fields>
+												<Text text="{path: 'SO>/Erdat', formatter:'.formatter.formatDate'}" wrapping="false"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{/#SalesOrderHeader/Audat/@sap:label}">
+											<f:fields>
+												<Text text="{path: 'SO>/Audat', formatter:'.formatter.formatDate'}" wrapping="false"/>
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+									<f:FormElement label="{/#SalesOrderHeader/Waerk/@sap:label}">
+										<f:fields>
+											<!-- <Text text="{SO>/Waerk}"></Text> -->
+											<Input value="{SO>/Waerk}"></Input>
+										</f:fields>
+									</f:FormElement>
+								</f:FormContainer>
+								<f:FormContainer>
+									<f:formElements>
+										<f:FormElement label="{/#SalesOrderHeader/Vbtyp/@sap:label}">
+											<f:fields>
+												<Text text="{SO>/Vbtyp}"></Text>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{/#SalesOrderHeader/Auart/@sap:label}">
+											<f:fields>
+												<Text text="{SO>/Auart}"></Text>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{/#SalesOrderHeader/Netwr/@sap:label}">
+											<f:fields>
+												<Text text="{SO>/Netwr}"></Text>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{/#SalesOrderHeader/Vkorg/@sap:label}">
+											<f:fields>
+												<Text text="{SO>/Vkorg}"></Text>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement label="{/#SalesOrderHeader/Vtweg/@sap:label}">
+											<f:fields>
+												<Text text="{SO>/Vtweg}"></Text>
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+							</f:formContainers>
+						</f:Form>
+					</Panel>
+					<Panel headerText="{i18n>itemInfo}" expandable="true" expanded="true">
+						<Table id="oTable" items="{SO>/ItemSet}">
+							<columns>
+								<Column>
+									<Text text="{/#SalesOrderItem/Posnr/@sap:label}"/>
+								</Column>
+								<Column>
+									<Text text="{/#SalesOrderItem/Matnr/@sap:label}"/>
+								</Column>
+								<Column>
+									<Text text="{/#SalesOrderItem/Charg/@sap:label}"/>
+								</Column>
+								<Column>
+									<Text text="{/#SalesOrderItem/Matkl/@sap:label}"/>
+								</Column>
+								<Column>
+									<Text text="{/#SalesOrderItem/Arktx/@sap:label}"/>
+								</Column>
+								<Column>
+									<Text text="{/#SalesOrderItem/Pstyv/@sap:label}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{SO>Posnr}"/>
+										<Text text="{SO>Matnr}"/>
+										<Text text="{SO>Charg}"/>
+										<Text text="{SO>Matkl}"/>
+										<Text text="{SO>Arktx}"/>
+										<Text text="{SO>Pstyv}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</Panel>
+				</content>
+			</Page>
+			<Page>
+				<BusyDialog id="loadingDialog" title="Loading"/>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
