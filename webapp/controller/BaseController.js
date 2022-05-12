@@ -34,6 +34,7 @@ sap.ui.define([
 		 * @returns {sap.ui.core.EventBus} the event bus for this component
 		 */
 		getEventBus: function () {
+			//test
 			return this.getOwnerComponent().getEventBus();
 		},
 
