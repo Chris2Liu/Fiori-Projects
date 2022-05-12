@@ -28,6 +28,15 @@ sap.ui.define([
 			};
 		},
 
+		/**
+		 * Convenience method for accessing the event bus.
+		 * @public
+		 * @returns {sap.ui.core.EventBus} the event bus for this component
+		 */
+		getEventBus: function () {
+			return this.getOwnerComponent().getEventBus();
+		},
+
 		replaceAll: function (str, s1, s2) {
 			return str.replace(new RegExp(s1, "gm"), s2);
 		},
