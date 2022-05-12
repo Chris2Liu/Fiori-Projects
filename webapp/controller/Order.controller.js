@@ -24,7 +24,6 @@ sap.ui.define([
 		},
 
 		_onMatched: function (oEvent) {
-                        // git test
 			this.resetFormBackBtn();
 			if (sap.ui.getCore().byId("shellAppTitle")) {
 				sap.ui.getCore().byId("shellAppTitle").setText("Petty Cash Claim");
@@ -565,7 +564,7 @@ sap.ui.define([
 			var saveEnabled = this.byId("saveBtn").getEnabled();
 			var status = this.getModel("PC").getProperty("/Status");
 			if (saveEnabled === false || ($.inArray(this.role, ["1", "2"]) > -1 && $.inArray(status, ["06", "08", "09"]) > -1) || ($.inArray(
-					this.role, ["3"]) > -1 && $.inArray(status, ["07", "08", "09"]) > -1)) {
+				this.role, ["3"]) > -1 && $.inArray(status, ["07", "08", "09"]) > -1)) {
 				otherBtnEnabled = false;
 			}
 			var buttonIdArray = [
@@ -596,61 +595,61 @@ sap.ui.define([
 				status = "0";
 			}
 			switch (objectId) {
-			case "createBtn":
-				if (role === "1") {
+				case "createBtn":
+					if (role === "1") {
+						result = true;
+					}
+					break;
+				case "copyBtn":
+					if (status >= "01" && role === "1") {
+						result = true;
+					}
+					break;
+				case "saveBtn":
+					if (($.inArray(status, ["0", "01", "06", "08", "09"]) > -1 && role === "1") ||
+						($.inArray(status, ["03", "04", "05", "06", "08", "09"]) > -1 && role === "2") ||
+						($.inArray(status, ["06", "07", "08", "09"]) > -1 && role === "3")) {
+						result = true;
+					}
+					break;
+				case "uploadBtn":
+					if (status >= "01") {
+						result = true;
+					}
+					break;
+				case "previewBtn":
+					if (status >= "01") {
+						result = true;
+					}
+					break;
+				case "printBtn":
+					if ((status !== "0" && status !== "02" && role === "2") || ($.inArray(status, ["06", "07", "08", "09"]) > -1 && role === "3")) {
+						result = true;
+					}
+					break;
+				case "changeLogBtn":
+					if (status >= "01") {
+						result = true;
+					}
+					break;
+				case "deleteBtn":
+					if ((status === "01" && role === "1") || (status === "03" && role === "2")) {
+						result = true;
+					}
+					break;
+				case "reimburseBtn":
+					if (status === "01" && role === "2") {
+						result = true;
+					}
+					break;
+				case "reassignBtn":
+					if (role === "2") {
+						result = true;
+					}
+					break;
+				case "emailBtn":
 					result = true;
-				}
-				break;
-			case "copyBtn":
-				if (status >= "01" && role === "1") {
-					result = true;
-				}
-				break;
-			case "saveBtn":
-				if (($.inArray(status, ["0", "01", "06", "08", "09"]) > -1 && role === "1") ||
-					($.inArray(status, ["03", "04", "05", "06", "08", "09"]) > -1 && role === "2") ||
-					($.inArray(status, ["06", "07", "08", "09"]) > -1 && role === "3")) {
-					result = true;
-				}
-				break;
-			case "uploadBtn":
-				if (status >= "01") {
-					result = true;
-				}
-				break;
-			case "previewBtn":
-				if (status >= "01") {
-					result = true;
-				}
-				break;
-			case "printBtn":
-				if ((status !== "0" && status !== "02" && role === "2") || ($.inArray(status, ["06", "07", "08", "09"]) > -1 && role === "3")) {
-					result = true;
-				}
-				break;
-			case "changeLogBtn":
-				if (status >= "01") {
-					result = true;
-				}
-				break;
-			case "deleteBtn":
-				if ((status === "01" && role === "1") || (status === "03" && role === "2")) {
-					result = true;
-				}
-				break;
-			case "reimburseBtn":
-				if (status === "01" && role === "2") {
-					result = true;
-				}
-				break;
-			case "reassignBtn":
-				if (role === "2") {
-					result = true;
-				}
-				break;
-			case "emailBtn":
-				result = true;
-				break;
+					break;
 			}
 			return result;
 
@@ -664,23 +663,23 @@ sap.ui.define([
 			var result = false;
 			var role = this.role;
 			switch (role) {
-			case "1": //Preparer
-				if ($.inArray(objectId, ["createBtn", "copyBtn", "saveBtn", "uploadBtn", "previewBtn", "changeLogBtn", "deleteBtn"]) > -1) {
-					result = true;
-				}
-				break;
-			case "2": //Administrator
-				if ($.inArray(objectId, ["saveBtn", "uploadBtn", "previewBtn", "printBtn", "changeLogBtn", "deleteBtn", "reimburseBtn",
+				case "1": //Preparer
+					if ($.inArray(objectId, ["createBtn", "copyBtn", "saveBtn", "uploadBtn", "previewBtn", "changeLogBtn", "deleteBtn"]) > -1) {
+						result = true;
+					}
+					break;
+				case "2": //Administrator
+					if ($.inArray(objectId, ["saveBtn", "uploadBtn", "previewBtn", "printBtn", "changeLogBtn", "deleteBtn", "reimburseBtn",
 						"reassignBtn"
 					]) > -1) {
-					result = true;
-				}
-				break;
-			case "3": //ITU
-				if ($.inArray(objectId, ["saveBtn", "uploadBtn", "previewBtn", "printBtn", "changeLogBtn"]) > -1) {
-					result = true;
-				}
-				break;
+						result = true;
+					}
+					break;
+				case "3": //ITU
+					if ($.inArray(objectId, ["saveBtn", "uploadBtn", "previewBtn", "printBtn", "changeLogBtn"]) > -1) {
+						result = true;
+					}
+					break;
 			}
 			return result;
 
@@ -1021,7 +1020,7 @@ sap.ui.define([
 					that.getModel("PC").setProperty(sPath + "/StaffRptDept", data.StaffRptDept);
 					that.byId("loadingDialog").close();
 				},
-				error: function (oError) {}
+				error: function (oError) { }
 			});
 		},
 
@@ -1402,11 +1401,11 @@ sap.ui.define([
 
 						if (dataJson.severity === "error") {
 							if (dataJson.message.search("is processing by") > -1 || dataJson.message.search(
-									"has just been updated by another user. Please reload this e-form and make your changes again.") > -1) {
+								"has just been updated by another user. Please reload this e-form and make your changes again.") > -1) {
 								sap.m.MessageBox.warning(dataJson.message, {
 									title: "Warning",
 									actions: [sap.m.MessageBox.Action.OK],
-									onClose: function (sButton) {}
+									onClose: function (sButton) { }
 								});
 							} else {
 								that.alert(dataJson.message);
@@ -1489,11 +1488,11 @@ sap.ui.define([
 						if (dataJson.severity === "error") {
 							that.SaveStatus = 0;
 							if (dataJson.message.search("is processing by") > -1 || dataJson.message.search(
-									"has just been updated by another user. Please reload this e-form and make your changes again.") > -1) {
+								"has just been updated by another user. Please reload this e-form and make your changes again.") > -1) {
 								sap.m.MessageBox.warning(dataJson.message, {
 									title: "Warning",
 									actions: [sap.m.MessageBox.Action.OK],
-									onClose: function (sButton) {}
+									onClose: function (sButton) { }
 								});
 							} else {
 								that.alert(dataJson.message);
@@ -1630,9 +1629,9 @@ sap.ui.define([
 			};
 			for (var key in oData) {
 				if ($.inArray(key, ["__metadata", "REF", "accREF", "approveEndorserSpath", "accSpath", "FUNDCHECKSet",
-						"PRODUCT_TYPESet", "SECTIONSet", "AUFNRSet", "PCHEADTODOCTemp", "STAFFSet", "PROJECT_IDSet", "BUDGETCODESet", "GLSet",
-						"FORWPERSSet", "FOHOLDREASON", "SELECTIONSET"
-					]) > -1) {
+					"PRODUCT_TYPESet", "SECTIONSet", "AUFNRSet", "PCHEADTODOCTemp", "STAFFSet", "PROJECT_IDSet", "BUDGETCODESet", "GLSet",
+					"FORWPERSSet", "FOHOLDREASON", "SELECTIONSET"
+				]) > -1) {
 					continue;
 				}
 
@@ -1862,17 +1861,17 @@ sap.ui.define([
 				}
 				sap.m.MessageBox.confirm("Are you sure to delete the Claim No. " + oData.Claimno +
 					"?\nPlease make sure that this reimbursed claim has been refunded if you are to delete it.", {
-						onClose: function (sButton) {
-							if (sButton === sap.m.MessageBox.Action.OK) {
-								var oEntry = {
-									Claimno: oData.Claimno,
-									Parameter: "delete",
-									PCHEADTOITEM: []
-								};
-								that.updateStatus(oEntry);
-							}
+					onClose: function (sButton) {
+						if (sButton === sap.m.MessageBox.Action.OK) {
+							var oEntry = {
+								Claimno: oData.Claimno,
+								Parameter: "delete",
+								PCHEADTOITEM: []
+							};
+							that.updateStatus(oEntry);
 						}
-					});
+					}
+				});
 			}
 
 		},
@@ -1898,11 +1897,11 @@ sap.ui.define([
 
 						if (dataJson.severity === "error") {
 							if (dataJson.message.search("is processing by") > -1 || dataJson.message.search(
-									"has just been updated by another user. Please reload this e-form and make your changes again.") > -1) {
+								"has just been updated by another user. Please reload this e-form and make your changes again.") > -1) {
 								sap.m.MessageBox.warning(dataJson.message, {
 									title: "Warning",
 									actions: [sap.m.MessageBox.Action.OK],
-									onClose: function (sButton) {}
+									onClose: function (sButton) { }
 								});
 							} else {
 								that.alert(dataJson.message);
