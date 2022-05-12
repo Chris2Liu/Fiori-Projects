@@ -1,0 +1,24 @@
+<mvc:View controllerName="ZEFORM.Invoice.controller.QuickGuide" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<App>
+		<pages>
+			<Page title="Quick Guide and Video Demo for System Users" showHeader="false">
+				<content>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+						<Label text="">
+							<layoutData>
+								<l:GridData span="XL4 L4 M4 S4"/>
+							</layoutData>
+						</Label>
+						<FormattedText
+							htmlText="&lt;ul&gt; &lt;li&gt; CI &amp; RVI - &lt;a href ='https://cusap.itsc.cuhk.edu.hk/irj/portal?NavigationTarget=pcd:portal_content/every_user/general/CUSAP/CI_RV/CIRVIGuidesHTML_Page&amp;NavMode=10' target='_blank'&gt;User Guides&lt;/a&gt; &lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt; CI &amp; RVI - &lt;a href='https://cusap.itsc.cuhk.edu.hk/irj/portal?NavigationTarget=pcd:portal_content/every_user/general/CUSAP/CI_RV/CIRVIVideoGuidesHTML_Page&amp;NavMode=10' target='_blank'&gt;Video Demonstrations&lt;/a&gt; &lt;/li&gt; &lt;/ul&gt;">
+							<layoutData>
+								<l:GridData span="XL8 L8 M8 S8"/>
+							</layoutData>
+						</FormattedText>
+					</f:SimpleForm>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

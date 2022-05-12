@@ -1,0 +1,19 @@
+<mvc:View controllerName="ZEFORM.Invoice.controller.CI_Guide" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<App id="app">
+		<pages>
+			<Page id="page" showHeader="false">
+				<content>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+						<Label text="">
+							<layoutData>
+								<l:GridData span="XL4 L4 M4 S4"/>
+							</layoutData>
+						</Label>
+						<Text text="Invoice Guide"></Text>
+					</f:SimpleForm>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

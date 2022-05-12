@@ -1,0 +1,1001 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ZEFORM.Invoice.controller.CustomerInvoice"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified"
+	xmlns:t="sap.ui.table" xmlns:smarttable="sap.ui.comp.smarttable" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar">
+	<App>
+		<pages>
+			<Page showHeader="false">
+				<footer>
+					<core:Fragment fragmentName="ZEFORM.Invoice.view.fragment.Toolbar" type="XML"/>
+				</footer>
+				<content>
+					<ObjectHeader backgroundDesign="Translucent" fullScreenOptimized="false" responsive="true" titleLevel="H6" condensed="true"
+						titleActive="true" titlePress="handleTitlePress" busyIndicatorDelay="0" title="">
+						<ObjectAttribute title="Invoice No." text="{CI>/Cino}"/>
+						<ObjectAttribute title="Invoice Sent Method" text="{path: 'CI>/Method', formatter:'.formatter.formatMethod'}"/>
+						<ObjectAttribute title="Created By" text="{CI>/PreparerName}"/>
+						<ObjectAttribute title="Created On" text="{path: 'CI>/CrtDate', formatter:'.formatter.formatDate'}"/>
+						<statuses>
+							<ObjectStatus title="Status" text="{CI>/Statustext}"/>
+						</statuses>
+					</ObjectHeader>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+						<FormattedText
+							htmlText="&lt;span style='text-align:left;font-weight:bold'&gt;*** Changes must be saved first to effect the changes for next action.&lt;/span&gt;">
+							<layoutData>
+								<l:GridData span="XL12 L12 M12 S12"/>
+							</layoutData>
+						</FormattedText>
+					</f:SimpleForm>
+					<f:Form editable="true" title="Department Information">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Department">
+										<f:fields>
+											<Input id="Department" type="Text" value="{CI>/CtDept}" enabled="{CI>/CtDeptEnabled}" required="true" maxLength="70"
+												tooltip="The department name to be printed on customer invoice, receipt and overdue reminder."/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Division/Unit">
+										<f:fields>
+											<Input type="Text" value="{CI>/Division}" enabled="{CI>/DivisionEnabled}" maxLength="70"
+												tooltip="The division/unit name to be printed on customer invoice, receipt and overdue reminder, following department name."/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Contact Person">
+										<f:fields>
+											<Input id="ContractPerson" type="Text" value="{CI>/CtPerson}" enabled="{CI>/CtPersonEnabled}" required="true" maxLength="70"
+												tooltip="The name of the contact person whom the customer could contact whenever necessary."/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Contact Person Email Address">
+										<f:fields>
+											<Input id="ContractPersonEmailAddress" type="Text" value="{CI>/CtEmail}" enabled="{CI>/CtEmailEnabled}" required="true" maxLength="100"
+												tooltip="Email address of the contact person."/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Contact Person Phone No.">
+										<f:fields>
+											<Input id="ContractPersonPhoneNo" type="Text" value="{CI>/CtTel}" enabled="{CI>/CtTelEnabled}" required="true" maxLength="35"
+												tooltip="Telephone number of the contact person."/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Contact Person Fax No.">
+										<f:fields>
+											<Input type="Text" value="{CI>/CtFax}" enabled="{CI>/CtFaxEnabled}" maxLength="30" tooltip="Facsimile number of the contact person."/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Invoice Date">
+										<f:fields>
+											<DatePicker id="InvoiceDatePicker" displayFormat="dd.MM.yyyy" change="changeDueDate" required="true" dateValue="{CI>/Invdate}"
+												enabled="{CI>/InvdateEnabled}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Invoice Admin Party">
+										<f:fields>
+											<Input id="InvoiceAdminParty" value="{path: 'CI>/Admin'}" enabled="{CI>/AdminEnabled}" change="checkAdminParty" maxLength="24"
+												tooltip="The administrator of this cost centre/project can also maintain this Customer Invoice in addition to the preparer." required="true"></Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Header Reference">
+										<f:fields>
+											<Button text="Reference Fields" type="Emphasized" press="openHeadReferenceDialog"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<f:Form editable="true" title="Department Correspondence Address">
+						<f:layout>
+							<f:ResponsiveGridLayout adjustLabelSpan="false" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" emptySpanXL="0" emptySpanL="0"
+								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Line 1">
+										<f:fields>
+											<Input id="DCA1" value="{CI>/Deptcorraddrl1}" enabled="{CI>/Deptcorraddrl1Enabled}" required="true" maxLength="45"></Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Line 2">
+										<f:fields>
+											<Input id="DCA2" value="{CI>/Deptcorraddrl2}" enabled="{CI>/Deptcorraddrl2Enabled}" required="true" maxLength="45"></Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Line 3">
+										<f:fields>
+											<Input value="{CI>/Deptcorraddrl3}" enabled="{CI>/Deptcorraddrl3Enabled}" maxLength="45"></Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Line 4">
+										<f:fields>
+											<Input value="{CI>/Deptcorraddrl4}" enabled="{CI>/Deptcorraddrl4Enabled}" maxLength="45"></Input>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<f:Form editable="true" title="Customer Information">
+						<f:layout>
+							<f:ResponsiveGridLayout adjustLabelSpan="false" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" emptySpanXL="0" emptySpanL="0"
+								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Customer Name">
+										<f:fields>
+											<Input id="CustomerName" value="{CI>/Customername}" enabled="{CI>/CustomernameEnabled}" required="true" maxLength="130"
+												tooltip="Customer’s legal name in full."></Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Customer Email Address">
+										<f:fields>
+											<Input id="CustomerEmailAddress" value="{CI>/CustEmail}" enabled="{CI>/CustEmailEnabled}" maxLength="100"
+												tooltip="Email address of the customer. Multiple email addresses can be input, separated by semicolon, in order to send this invoice to multiple email addresses."></Input>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Customer Phone No.">
+										<f:fields>
+											<Input value="{CI>/CustTel}" enabled="{CI>/CustTelEnabled}" maxLength="35" tooltip="Telephone number of the customer."></Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Customer Contact Person">
+										<f:fields>
+											<Input value="{CI>/CustPerson}" enabled="{CI>/CustPersonEnabled}" maxLength="70"
+												tooltip="The name of the customer contact person whom CUHK could contact whenever necessary."></Input>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<f:Form editable="true" title="Customer Postal Address">
+						<f:layout>
+							<f:ResponsiveGridLayout adjustLabelSpan="false" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" emptySpanXL="0" emptySpanL="0"
+								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Line 1">
+										<f:fields>
+											<Input id="CPA1" value="{CI>/Custpadddrl1}" enabled="{CI>/Custpadddrl1Enabled}" required="true" maxLength="50"></Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Line 2">
+										<f:fields>
+											<Input id="CPA2" value="{CI>/Custpadddrl2}" enabled="{CI>/Custpadddrl2Enabled}" maxLength="50"></Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Line 3">
+										<f:fields>
+											<Input id="CPA3" value="{CI>/Custpadddrl3}" enabled="{CI>/Custpadddrl3Enabled}" maxLength="50"></Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Line 4">
+										<f:fields>
+											<Input id="CPA4" value="{CI>/Custpadddrl4}" enabled="{CI>/Custpadddrl4Enabled}" maxLength="50"></Input>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<f:Form editable="true" title="Other Invoice Data">
+						<f:layout>
+							<f:ResponsiveGridLayout adjustLabelSpan="false" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" emptySpanXL="0" emptySpanL="0"
+								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="Project Reference">
+										<f:fields>
+											<Input value="{CI>/Projectref}" enabled="{CI>/ProjectrefEnabled}" maxLength="50"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Agreement No./Other Ref.">
+										<f:fields>
+											<Input value="{CI>/Agreementno}" enabled="{CI>/AgreementnoEnabled}" maxLength="50"/></f:fields>
+									</f:FormElement>
+									<f:FormElement label="Currency">
+										<f:fields>
+											<ComboBox id="Currency" value="{CI>/Waers}" enabled="{CI>/WaersEnabled}" items="{path: '/CURRENCYSet',templateShareable:false}"
+												required="true" change="changeCurrency" showSecondaryValues="true">
+												<core:ListItem key="{Waers}" text="{Waers}" additionalText="{Ltext}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Bank Account No.">
+										<f:fields>
+											<ComboBox items="{path: '/CIBANKSet',templateShareable:false}" value="{CI>/Bankaccountno}" enabled="{CI>/BankaccountnoEnabled}"
+												tooltip="{CI>/Bankaccountno}" required="true" showSecondaryValues="true">
+												<core:ListItem key="{Banno}" text="{Banno}" additionalText="{Waers1}"/>
+											</ComboBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="Payment Due Date">
+										<f:fields>
+											<DatePicker id="PaymentDueDatePicker" change="changeDueDate1" displayFormat="dd.MM.yyyy" dateValue="{CI>/Paymentduedate}"
+												enabled="{CI>/PaymentduedateEnabled}" required="true"/>
+											<Text text="(Allow Override)"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<Toolbar>
+						<content>
+							<Title text="Line Item Information" width="200px"/>
+							<Button icon="sap-icon://add" type="Transparent" press="itemAddRow" id="itemAddRowBtn"/>
+							<Button icon="sap-icon://less" type="Transparent" press="itemRemoveRow" id="itemRemoveRowBtn" tooltip="Delete selected item(s)."/>
+							<Button icon="sap-icon://copy" type="Transparent" press="itemCopyRow" id="itemCopyRowBtn"
+								tooltip="The selected line item, including its account assignment(s), can be copied."/>
+							<Button icon="sap-icon://activity-items" type="Transparent"
+								tooltip="Access &quot;Account Assignments and Line Item References&quot; window of the selected item." press="quickOpenAccDialog"/>
+						</content>
+					</Toolbar>
+					<Table id="itemTable" fixedLayout="true" mode="MultiSelect" updateFinished="refreshTotal" items="{path: 'CI>/CIHEADTOITEM',length:1000}">
+						<columns>
+							<Column width="6rem">
+								<Label text="Item No." required="true"/>
+							</Column>
+							<Column width="25rem">
+								<Label text="Item Description" required="true"/>
+								<footer>
+									<Text textAlign="Right" text="Total Amount"/>
+								</footer>
+							</Column>
+							<Column width="6rem" hAlign="Right">
+								<Label text="Amount" required="true"/>
+								<footer>
+									<Text textAlign="Right" class="sapMInputBaseInner"
+										text="{path: 'CI>/Tolamt', type:'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }}"/>
+								</footer>
+							</Column>
+							<Column width="8rem">
+								<Text text="Acc. Assign &amp; Item Ref (Optional)"
+									tooltip="Input of account assignment is not compulsory when issuing an invoice; the information can be provided later when preparing receipt voucher."/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Input value="{CI>Ciitem}" enabled="{CI>CiitemEnabled}" change="changeItemNo" maxLength="5" required="true"/>
+									<!--change="changeDescription"-->
+									<Input value="{CI>Description_Temp}" enabled="{CI>DescriptionEnabled}" tooltip="{CI>Description}" maxLength="1000"
+										valueHelpRequest="descriptionValueHelp" showValueHelp="true" required="true" valueHelpOnly="true"/>
+									<Input value="{path: 'CI>Amount', type:'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }}"
+										enabled="{CI>AmountEnabled}" textAlign="Right" change="changeAmount" required="ture"/>
+									<Button text="Acc. Assign &amp; Item Ref" type="Emphasized" press="openAccDialog"
+										tooltip="Input of account assignment is not compulsory when issuing an invoice; the information can be provided later when preparing receipt voucher."/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<CheckBox selected="{CI>/Asigned}" enabled="{CI>/AsignedEnabled}" text="Print &quot;Authorized Signature&quot; on invoice"/>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+						<Label text="Remarks for Department's Internal Use">
+							<layoutData>
+								<l:GridData span="XL12 L12 M12 S12"/>
+							</layoutData>
+						</Label>
+						<TextArea growing="true" rows="2" value="{CI>/Remarkdept}" enabled="{CI>/RemarkdeptEnabled}" width="60%" maxLength="254"
+							tooltip="Remarks for internal reference only.">
+							<layoutData>
+								<l:GridData span="XL12 L12 M12 S12"/>
+							</layoutData>
+						</TextArea>
+						<Label text="Header Notes (for printing before line items on invoice)">
+							<layoutData>
+								<l:GridData span="XL12 L12 M12 S12"/>
+							</layoutData>
+						</Label>
+						<TextArea growing="true" rows="2" value="{CI>/Hnotes}" enabled="{CI>/HnotesEnabled}" width="60%" maxLength="500"
+							tooltip="Remarks for customer information.">
+							<layoutData>
+								<l:GridData span="XL12 L12 M12 S12"/>
+							</layoutData>
+						</TextArea>
+						<Label text="Footer Notes (for printing after line items on invoice)">
+							<layoutData>
+								<l:GridData span="XL12 L12 M12 S12"/>
+							</layoutData>
+						</Label>
+						<TextArea growing="true" rows="2" value="{CI>/Notes}" enabled="{CI>/NotesEnabled}" width="60%" maxLength="500"
+							tooltip="Remarks for customer information.">
+							<layoutData>
+								<l:GridData span="XL12 L12 M12 S12"/>
+							</layoutData>
+						</TextArea>
+					</f:SimpleForm>
+					<Table id="approveTable" fixedLayout="true" items="{path: 'CI>/CIHEADTOPATH'}">
+						<columns>
+							<Column width="11rem"></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<l:Grid class="sapUiSmallMargin" defaultSpan="XL12 L12 M12 S12">
+										<VBox width="100%">
+											<layoutData>
+												<l:GridData span="XL3 L3 M3 S3"/>
+											</layoutData>
+											<Text text="Endorsed By"></Text>
+											<Input type="Text" value="{CI>Endorsedname}" enabled="false"/>
+										</VBox>
+										<VBox width="100%">
+											<layoutData>
+												<l:GridData span="XL3 L3 M3 S3"/>
+											</layoutData>
+											<Text text="Endorsed Date"></Text>
+											<DatePicker valueFormat="yyyy-MM-dd" enabled="false" displayFormat="dd.MM.yyyy" dateValue="{CI>Updat}"/>
+										</VBox>
+									</l:Grid>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+			<Page>
+				<BusyDialog id="loadingDialog" title="Loading"/>
+				<Dialog id="docDialog" title="Supporting Document" draggable="true">
+					<content>
+						<Toolbar>
+							<u:FileUploader id="docFile" uploadUrl="../upload" sameFilenameAllowed="true"/>
+							<Button text="Upload" press="docAddRow" id="uploadDocBtn"/>
+							<Button text="Delete" press="docRemoveRow" id="removeDocBtn"/>
+						</Toolbar>
+						<Table id="docTable" fixedLayout="true" mode="MultiSelect" items="{CI>/CIHEADTODOCTemp}">
+							<columns>
+								<Column width="15rem">
+									<Text text="File Name"/>
+								</Column>
+								<Column width="8rem">
+									<Text text="Upload Date"/>
+								</Column>
+								<Column width="8rem">
+									<Text text="FNO"/>
+								</Column>
+								<Column width="8rem">
+									<Text text="Dept."/>
+								</Column>
+								<Column width="11rem">
+									<Text text="Parent Folder"/>
+								</Column>
+								<Column width="8rem">
+									<Text text="Attach to Invoice Email"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Link text="{CI>Fname}" press="downloadDoc"/>
+										<Text text="{path: 'CI>Updat', formatter:'.formatter.formatDate'}"/>
+										<Text text="{CI>Fno}"/>
+										<Text text="{CI>Dept}"/>
+										<Text text="{CI>Parent}"/>
+										<CheckBox selected="{CI>Email}" enabled="{CI>EmailEnabled}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+					<buttons>
+						<Button text="Save" press="saveDocument"/>
+						<Button text="Cancel" press="closeDocDialog"/>
+					</buttons>
+				</Dialog>
+				<Dialog id="logDialog" title="Change Log">
+					<content>
+						<t:Table id="logTable" rows="{path: 'Log>/LOGSet'}" selectionMode="None">
+							<t:toolbar>
+								<Toolbar>
+									<ToolbarSeparator/>
+									<SearchField id="changeLogFilter" placeholder="Field Name" search="filterChangeLog" width="15rem"/>
+								</Toolbar>
+							</t:toolbar>
+							<t:columns>
+								<t:Column width="8rem"><Label text="Date"/>
+									<t:template><Text text="{path: 'Log>Udate', formatter:'.formatter.formatDate'}" wrapping="false"/></t:template>
+								</t:Column>
+								<t:Column width="8rem"><Label text="Time"/>
+									<t:template><Text text="{path: 'Log>Utime', type: 'sap.ui.model.odata.type.Time' }" wrapping="false"/></t:template>
+								</t:Column>
+								<t:Column width="5rem"><Label text="Item No."/>
+									<t:template><Text text="{Log>Ciitem}" wrapping="false"/></t:template>
+								</t:Column>
+								<t:Column width="8rem"><Label text="Ass. Acct. No."/>
+									<t:template><Text text="{Log>Zekkn}" wrapping="false"/></t:template>
+								</t:Column>
+								<t:Column width="12rem"><Label text="Field Name"/>
+									<t:template><Text text="{Log>Ddtext}" wrapping="false"/></t:template>
+								</t:Column>
+								<t:Column width="12rem"><Label text="Old Value"/>
+									<t:template><Text text="{Log>ValueOld}" wrapping="false"/></t:template>
+								</t:Column>
+								<t:Column width="12rem"><Label text="New Value"/>
+									<t:template><Text text="{Log>ValueNew}" wrapping="false"/></t:template>
+								</t:Column>
+								<t:Column width="15rem"><Label text="User"/>
+									<t:template><Text text="{Log>Name}" wrapping="false"/></t:template>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</content>
+					<buttons>
+						<Button text="Close" press="closeLogDialog"/>
+					</buttons>
+				</Dialog>
+				<Dialog id="refDialog" title="Header Reference Field" contentWidth="650px">
+					<content>
+						<l:Grid class="sapUiSmallMargin" defaultSpan="XL12 L12 M12 S12">
+							<VBox>
+								<layoutData >
+									<l:GridData span="XL12 L12 M12 S12"/>
+								</layoutData>
+								<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+									<Label text="Department Reference" visible="{CI>/REF/Reference6Visible}">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input value="{CI>/REF/Reference6}" enabled="{CI>/REF/Reference6Enabled}" visible="{CI>/REF/Reference6Visible}" id="reference6"
+										maxLength="50" tooltip="Reference field, at form level, for internal use only.">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Service/Section/Unit/Category " visible="{CI>/REF/Reference7Visible}">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Select items="{ path: 'CI>/SECTIONSet'}" selectedKey="{CI>/REF/Reference7}" visible="{CI>/REF/Reference7Visible}"
+										enabled="{CI>/REF/Reference7Enabled}" id="reference7" showSecondaryValues="true" forceSelection="false"
+										tooltip="Reference field, at form level, for internal use only.">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+										<core:ListItem key="{CI>SectCode}" text="{CI>SectCode}" additionalText="{CI>Description}"/>
+									</Select>
+									<Label text="Project/Research Reference" visible="{CI>/REF/Reference8Visible}">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input value="{CI>/REF/Reference8}" enabled="{CI>/REF/Reference8Enabled}" visible="{CI>/REF/Reference8Visible}" id="reference8"
+										maxLength="50" tooltip="Reference field, at form level, for internal use only.">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Non-disclosure agreement" visible="{CI>/REF/Reference9Visible}">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<CheckBox selected="{CI>/REF/Reference9}" enabled="{CI>/REF/Reference9Enabled}" visible="{CI>/REF/Reference9Visible}" id="reference9"
+										tooltip="Reference field, at form level, for internal use only.">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</CheckBox>
+									<Label text="Non-disclosure agreement remarks" visible="{CI>/REF/Reference10Visible}">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input value="{CI>/REF/Reference10}" enabled="{CI>/REF/Reference10Enabled}" visible="{CI>/REF/Reference10Visible}" id="reference10"
+										maxLength="100" tooltip="Reference field, at form level, for internal use only.">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Reference 1">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input value="{CI>/REF/Reference1}" maxLength="50" enabled="{CI>/REF/Reference1Enabled}" id="reference1"
+										tooltip="Reference field, at form level, for internal use only.">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Reference 2">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input value="{CI>/REF/Reference2}" maxLength="50" enabled="{CI>/REF/Reference2Enabled}" id="reference2"
+										tooltip="Reference field, at form level, for internal use only.">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Reference 3">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input value="{CI>/REF/Reference3}" maxLength="50" enabled="{CI>/REF/Reference3Enabled}" id="reference3"
+										tooltip="Reference field, at form level, for internal use only.">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Reference 4">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input value="{CI>/REF/Reference4}" maxLength="50" enabled="{CI>/REF/Reference4Enabled}" id="reference4"
+										tooltip="Reference field, at form level, for internal use only.">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Reference 5">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input value="{CI>/REF/Reference5}" maxLength="50" enabled="{CI>/REF/Reference5Enabled}" id="reference5"
+										tooltip="Reference field, at form level, for internal use only.">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+								</f:SimpleForm>
+							</VBox>
+						</l:Grid>
+					</content>
+					<buttons>
+						<Button text="OK" press="onRef"/>
+						<Button text="Cancel" press="closeHeadReferenceDialog"/>
+					</buttons>
+				</Dialog>
+				<Dialog id="returnDialog" title="Reason for Return">
+					<content>
+						<TextArea growing="true" rows="8" maxLength="500" width="500px" value="{CI>/ReturnReason}"/>
+					</content>
+					<buttons>
+						<Button text="OK" press="onReturn"/>
+						<Button text="Cancel" press="closeReturnDialog"/>
+					</buttons>
+				</Dialog>
+				<Dialog id="deleteDialog" title="Reason for Deletion">
+					<content>
+						<TextArea growing="true" rows="8" maxLength="500" width="500px" value="{CI>/DeleteReason}"/>
+					</content>
+					<buttons>
+						<Button text="OK" press="onDelete"/>
+						<Button text="Cancel" press="closeDeleteDialog"/>
+					</buttons>
+				</Dialog>
+				<Dialog id="closeDialog" title="Reason for Close">
+					<content>
+						<TextArea growing="true" rows="8" maxLength="250" width="500px" value="{CI>/CloseReason}"/>
+					</content>
+					<buttons>
+						<Button text="OK" press="onClose"/>
+						<Button text="Cancel" press="closeCloseDialog"/>
+					</buttons>
+				</Dialog>
+				<Dialog id="pathDialog" title="Define Approval Path" draggable="true" contentWidth="50%">
+					<content>
+						<Toolbar>
+							<Button icon="sap-icon://add" type="Transparent" press="pathAddRow"/>
+							<Button icon="sap-icon://less" type="Transparent" press="pathRemoveRow"/>
+						</Toolbar>
+						<Table id="pathTable" fixedLayout="true" mode="MultiSelect" items="{CI>/CIHEADTOPATHTemp}">
+							<columns>
+								<Column width="11rem"></Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Input value="{CI>Endorsedname}" enabled="{CI>UnameEnabled}" valueHelpRequest="requestedByValueHelpE" showValueHelp="true"
+											valueHelpOnly="true"></Input>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+					<buttons>
+						<Button text="Save" press="path"/>
+						<Button text="Cancel" press="closePathDialog"/>
+					</buttons>
+				</Dialog>
+				<Dialog id="requestedBySelectDialogE" title="Select Endorser" contentWidth="60%">
+					<content>
+						<smartfilterbar:SmartFilterBar id="requestedByFilterBarE" enableBasicSearch="true" entitySet="ENDORSERSet">
+							<smartfilterbar:controlConfiguration>
+								<smartfilterbar:ControlConfiguration key="RptDept" preventInitialDataFetchInValueHelpDialog="true" label="Department"></smartfilterbar:ControlConfiguration>
+							</smartfilterbar:controlConfiguration>
+						</smartfilterbar:SmartFilterBar>
+						<smarttable:SmartTable entitySet="ENDORSERSet" tableType="Table" smartFilterId="requestedByFilterBarE" editable="false"
+							requestAtLeastFields="Staffid,Staffname,Displayname,RptDept,Staffac" useExportToExcel="false" useTablePersonalisation="false"
+							enableAutoBinding="false">
+							<t:Table selectionMode="None" cellClick="selectRequestedByE" visibleRowCount="5">
+								<t:Column width="auto">
+									<Label text="Staff Name"/>
+									<t:template>
+										<Text text="{Staffname}" wrapping="false"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="auto">
+									<Label text="Display Name"/>
+									<t:template>
+										<Text text="{Displayname}" wrapping="false"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="auto">
+									<Label text="Department"/>
+									<t:template>
+										<Text text="{RptDept}" wrapping="false"/>
+									</t:template>
+								</t:Column>
+							</t:Table>
+						</smarttable:SmartTable>
+					</content>
+					<buttons>
+						<Button text="Cancel" press="closeRequestedByValueHelpE"/>
+					</buttons>
+				</Dialog>
+				<Dialog id="submitToAdminDialog" title="Email to Administrator">
+					<content>
+						<f:SimpleForm layout="ResponsiveGridLayout" editable="true">
+							<Select id="administrator" showSecondaryValues="true"></Select>
+						</f:SimpleForm>
+					</content>
+					<buttons>
+						<Button text="Save" press="submitToAdmin"/>
+						<Button text="Cancel" press="cancelSubmitToAdmin"/>
+					</buttons>
+				</Dialog>
+				<Dialog id="accDialog" title="Line Item References and Account Assignments" draggable="true">
+					<content>
+						<Panel width="auto">
+							<headerToolbar>
+								<Toolbar>
+									<Title id="itemReferenceTitle" text="Line Item References" width="250px"/>
+									<Title id="itemReferenceDetail" text="Line Item References"/>
+								</Toolbar>
+							</headerToolbar>
+							<content>
+								<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+									<Label text="Product/Service Type">
+										<layoutData>
+											<l:GridData span="XL2 L2 M2 S2"/>
+										</layoutData>
+									</Label>
+									<Input value="{CI>/ITEMREF/ProductType}" enabled="{CI>/ITEMREF/ProductTypeEnabled}" width="30%" showValueHelp="true"
+										valueHelpRequest="productTypeValueHelp" valueHelpOnly="true">
+										<layoutData>
+											<l:GridData span="XL10 L10 M10 S10"/>
+										</layoutData>
+									</Input>
+								</f:SimpleForm>
+								<Table fixedLayout="true">
+									<columns>
+										<Column width="14rem">
+											<Text text="Reference 1"/>
+										</Column>
+										<Column width="14rem">
+											<Text text="Reference 2"/>
+										</Column>
+										<Column width="14rem">
+											<Text text="Reference 3"/>
+										</Column>
+										<Column width="14rem">
+											<Text text="Reference 4"/>
+										</Column>
+										<Column width="14rem">
+											<Text text="Reference 5"/>
+										</Column>
+										<Column width="14rem">
+											<Text text="Reference 6"/>
+										</Column>
+										<Column width="14rem">
+											<Text text="Reference 7"/>
+										</Column>
+										<Column width="14rem">
+											<Text text="Reference 8"/>
+										</Column>
+										<Column width="14rem">
+											<Text text="Reference 9"/>
+										</Column>
+										<Column width="14rem">
+											<Text text="Reference 10"/>
+										</Column>
+									</columns>
+									<ColumnListItem>
+										<cells>
+											<Input type="Text" value="{CI>/ITEMREF/Reference1}" tooltip="Reference field, at item level, for internal use only."
+												enabled="{CI>/ITEMREF/Reference1Enabled}" maxLength="50"/>
+											<Input type="Text" value="{CI>/ITEMREF/Reference2}" tooltip="Reference field, at item level, for internal use only."
+												enabled="{CI>/ITEMREF/Reference2Enabled}" maxLength="50"/>
+											<Input type="Text" value="{CI>/ITEMREF/Reference3}" tooltip="Reference field, at item level, for internal use only."
+												enabled="{CI>/ITEMREF/Reference3Enabled}" maxLength="50"/>
+											<Input type="Text" value="{CI>/ITEMREF/Reference4}" tooltip="Reference field, at item level, for internal use only."
+												enabled="{CI>/ITEMREF/Reference4Enabled}" maxLength="50"/>
+											<Input type="Text" value="{CI>/ITEMREF/Reference5}" tooltip="Reference field, at item level, for internal use only."
+												enabled="{CI>/ITEMREF/Reference5Enabled}" maxLength="50"/>
+											<Input type="Text" value="{CI>/ITEMREF/Reference6}" tooltip="Reference field, at item level, for internal use only."
+												enabled="{CI>/ITEMREF/Reference6Enabled}" maxLength="50"/>
+											<Input type="Text" value="{CI>/ITEMREF/Reference7}" tooltip="Reference field, at item level, for internal use only."
+												enabled="{CI>/ITEMREF/Reference7Enabled}" maxLength="50"/>
+											<Input type="Text" value="{CI>/ITEMREF/Reference8}" tooltip="Reference field, at item level, for internal use only."
+												enabled="{CI>/ITEMREF/Reference8Enabled}" maxLength="50"/>
+											<Input type="Text" value="{CI>/ITEMREF/Reference9}" tooltip="Reference field, at item level, for internal use only."
+												enabled="{CI>/ITEMREF/Reference9Enabled}" maxLength="50"/>
+											<Input type="Text" value="{CI>/ITEMREF/Reference10}" tooltip="Reference field, at item level, for internal use only."
+												enabled="{CI>/ITEMREF/Reference10Enabled}" maxLength="50"/>
+										</cells>
+									</ColumnListItem>
+								</Table>
+							</content>
+						</Panel>
+						<Panel width="auto">
+							<headerToolbar>
+								<Toolbar>
+									<Title text="Account Assignments" width="250px"/>
+									<Button icon="sap-icon://add" type="Transparent" press="accAddRow" id="addAccBtn"/>
+									<Button icon="sap-icon://less" type="Transparent" press="accRemoveRow" id="removeAccBtn" tooltip="Delete selected account assignment(s)."/>
+									<Button icon="sap-icon://copy" type="Transparent" press="accCopyRow" id="copyAccBtn" tooltip="Copy selected account assignment(s)."/>
+								</Toolbar>
+							</headerToolbar>
+							<Table id="accTable" fixedLayout="true" mode="MultiSelect" items="{CI>/CIITEMTOACC}">
+								<columns>
+									<Column width="6rem">
+										<Text text="Item No."/>
+									</Column>
+									<Column width="6rem">
+										<Text text="Acc. Ass No"/>
+									</Column>
+									<Column width="6rem">
+										<Text text="Curr."/>
+									</Column>
+									<Column width="8rem" hAlign="Right">
+										<Text text="Amount"/>
+									</Column>
+									<Column width="10rem" visible="{CI>/BudgCodeVisible}">
+										<Text text="Budget Code"/>
+									</Column>
+									<Column width="10rem" visible="{CI>/PrjIdVisible}">
+										<Text text="Project ID"/>
+									</Column>
+									<Column width="6rem">
+										<Text text="Company Code"/>
+									</Column>
+									<Column width="8rem">
+										<Text text="Business Area"/>
+									</Column>
+									<Column width="8rem">
+										<Text text="Cost Centre"/>
+									</Column>
+									<Column width="8rem">
+										<Text text="Project"/>
+									</Column>
+									<Column width="10rem">
+										<Text text="Internal Order"/>
+									</Column>
+									<Column width="8rem">
+										<Text text="A/C Code"/>
+									</Column>
+									<Column width="15rem">
+										<Text text="Budget Holder"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Input value="{CI>Ciitem}" enabled="false"/>
+											<Input value="{CI>Zekkn}" enabled="{CI>ZekknEnabled}" change="changeZekkn" maxLength="2"/>
+											<Input value="{CI>Waers}" enabled="false"/>
+											<Input value="{path: 'CI>Amount', type:'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }}"
+												enabled="{CI>AmountEnabled}" textAlign="Right" change="changeAccAmount"/>
+											<Input value="{CI>BudgCode}" enabled="{CI>BudgCodeEnabled}" showValueHelp="true" valueHelpRequest="budgCodeValueHelp" valueHelpOnly="true"
+												change="getBudgetHolder"/>
+											<Input value="{CI>PrjId}" enabled="{CI>PrjIdEnabled}" showValueHelp="true" valueHelpRequest="projectIdValueHelp" valueHelpOnly="true"/>
+											<Input value="{CI>Bukrs}" enabled="false" change="getBudgetHolder" maxLength="4" showValueHelp="true" valueHelpRequest="companyValueHelp"
+												tooltip="If company code is not input, it will be default according to cost centre or project."/>
+											<Input value="{CI>Gsber}" enabled="{CI>GsberEnabled}" change="getBudgetHolder" showValueHelp="true" valueHelpRequest="businessAreaValueHelp"
+												maxLength="4" tooltip="If business area is not input, it will be default according to cost centre or project. "/>
+											<Input value="{CI>Kostl}" enabled="{CI>KostlEnabled}" change="getBudgetHolder" tooltip="Either cost centre or project to be entered"
+												maxLength="10"/>
+											<Input value="{CI>Projn}" enabled="{CI>ProjnEnabled}" change="getBudgetHolder" tooltip="Either cost centre or project to be entered"
+												maxLength="24"/>
+											<Input value="{CI>Aufnr}" enabled="{CI>AufnrEnabled}" change="getBudgetHolder" showValueHelp="true" valueHelpRequest="aufnrValueHelp"
+												valueHelpOnly="false" tooltip="Internal order can be used for sub-allocation within department."/>
+											<Input value="{CI>Sakto}" enabled="{CI>SaktoEnabled}" tooltip="Account code to be credited." valueHelpRequest="acCodeValueHelp"
+												showValueHelp="true" maxLength="10" change="getBudgetHolder"/>
+											<Input value="{CI>Name1}" enabled="false"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</Panel>
+					</content>
+					<buttons>
+						<Button text="OK" id="accOkBtn" press="saveAcc"/>
+						<Button text="Cancel" press="closeAccDialog"/>
+					</buttons>
+				</Dialog>
+				<TableSelectDialog id="acCodeTableSelectDialog" growingThreshold="10000" noDataText="No A/C Code Found" title="Select G/L Account Code"
+					search="acCodeValueHelpSearch" confirm="acCodeValueHelpClose" cancel="acCodeValueHelpClose" items="{CI>/GLSet}" contentWidth="70%">
+					<columns>
+						<Column>
+							<Text text="G/L Account Code"/>
+						</Column>
+						<!--<Column>-->
+						<!--	<Text text="Short Description"/>-->
+						<!--</Column>-->
+						<Column>
+							<Text text="Long Description"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<cells>
+							<Text text="{CI>GlAcc}"/>
+							<!--<Text text="{CI>ShortDesc}"/>-->
+							<Text text="{CI>LongDesc}"/>
+						</cells>
+					</ColumnListItem>
+				</TableSelectDialog>
+				<TableSelectDialog id="aufnrTableSelectDialog" growingThreshold="10000" noDataText="No Internal Order Found" title="Select Internal Order"
+					search="aufnrValueHelpSearch" confirm="aufnrValueHelpClose" cancel="aufnrValueHelpClose" items="{CI>/AUFNRSet}">
+					<columns>
+						<Column>
+							<Text text="Code"/>
+						</Column>
+						<Column>
+							<Text text="Description"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<cells>
+							<Text text="{CI>Aufnr}"/>
+							<Text text="{CI>Description}"/>
+						</cells>
+					</ColumnListItem>
+				</TableSelectDialog>
+				<TableSelectDialog id="businessAreaTableSelectDialog" growingThreshold="10000" noDataText="No Business Area Found"
+					title="Select Business Area" search="businessAreaValueHelpSearch" confirm="businessAreaValueHelpClose" cancel="businessAreaValueHelpClose"
+					items="{/BUAREASet}">
+					<columns>
+						<Column>
+							<Text text="Business Area Code"/>
+						</Column>
+						<Column>
+							<Text text="Business Area Name"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<cells>
+							<Text text="{Gsber}"/>
+							<Text text="{Gtext}"/>
+						</cells>
+					</ColumnListItem>
+				</TableSelectDialog>
+				<TableSelectDialog id="companyTableSelectDialog" growingThreshold="10000" noDataText="No Company Code Found" title="Select Company Code"
+					search="companyValueHelpSearch" confirm="companyValueHelpClose" cancel="companyValueHelpClose" items="{/COMPANYSet}">
+					<columns>
+						<Column>
+							<Text text="Company Code"/>
+						</Column>
+						<Column>
+							<Text text="Company Name"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<cells>
+							<Text text="{Bukrs}"/>
+							<Text text="{Butxt}"/>
+						</cells>
+					</ColumnListItem>
+				</TableSelectDialog>
+				<TableSelectDialog id="budgCodeTableSelectDialog" growingThreshold="10000" noDataText="No Budget Code Found" title="Select Budget Code"
+					search="budgCodeValueHelpSearch" confirm="budgCodeValueHelpClose" cancel="budgCodeValueHelpClose" items="{CI>/BUDGETCODESet}"
+					contentWidth="70%">
+					<columns>
+						<Column>
+							<Text text="Code"/>
+						</Column>
+						<Column>
+							<Text text="Description"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<cells>
+							<Text text="{CI>BudgCode}"/>
+							<Text text="{CI>Description}"/>
+						</cells>
+					</ColumnListItem>
+				</TableSelectDialog>
+				<TableSelectDialog id="projectIdTableSelectDialog" growingThreshold="10000" noDataText="No Project ID Found" title="Select Project ID"
+					search="projectIdValueHelpSearch" confirm="projectIdValueHelpClose" cancel="projectIdValueHelpClose" items="{CI>/PROJECT_IDSet}"
+					contentWidth="70%">
+					<columns>
+						<Column>
+							<Text text="Code"/>
+						</Column>
+						<Column>
+							<Text text="Description"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<cells>
+							<Text text="{CI>PrjId}"/>
+							<Text text="{CI>Description}"/>
+						</cells>
+					</ColumnListItem>
+				</TableSelectDialog>
+				<Dialog id="prepareDialog" title="Reassign Preparer">
+					<content>
+						<f:SimpleForm layout="ResponsiveGridLayout">
+							<Label text="Current Preparer"/>
+							<Input type="Text" enabled="false" value="{CI>/PreparerName}"/>
+							<Label text="New Preparer"/>
+							<Select items="{path: 'CI>/STAFFSet', filters: [{ path: 'Role', operator: 'EQ', value1: '1' }]}" id="newPrepare" showSecondaryValues="true">
+								<core:ListItem key="{CI>Staffid}" text="{CI>Disname}" additionalText="{CI>Name}"/>
+							</Select>
+						</f:SimpleForm>
+					</content>
+					<buttons>
+						<Button text="Save" press="prepare"/>
+						<Button text="Cancel" press="closePrepareDialog"/>
+					</buttons>
+				</Dialog>
+				<Dialog id="dialogDescription" title="Description">
+					<content>
+						<TextArea growing="true" rows="12" width="550px" growingMaxLines="12" id="description" value="{CI>/Description}" maxLength="1000"
+							tooltip="Invoice item description which allows a maximum of 1000 characters."/>
+					</content>
+					<buttons>
+						<Button text="OK" press="onDialogDescriptionSavePress"/>
+						<Button text="Cancel" press="onDialogDescriptionCancelPress"/>
+					</buttons>
+				</Dialog>
+				<TableSelectDialog id="productTypeTableSelectDialog" growingThreshold="10000" noDataText="No Product Type Found"
+					title="Select Product Type Code" search="productTypeValueHelpSearch" confirm="productTypeValueHelpClose" cancel="productTypeValueHelpClose"
+					items="{CI>/PRODUCT_TYPESet}">
+					<columns>
+						<Column>
+							<Text text="Code"/>
+						</Column>
+						<Column>
+							<Text text="Description"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<cells>
+							<Text text="{CI>PrdType}"/>
+							<Text text="{CI>Description}"/>
+						</cells>
+					</ColumnListItem>
+				</TableSelectDialog>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

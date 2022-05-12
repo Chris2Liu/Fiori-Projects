@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:Reference
+		Uri="https://webidecp-a16zsievws.dispatcher.ap1.hana.ondemand.com/destinations/CUHK/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="Org.OData.Capabilities.V1"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-a16zsievws.dispatcher.ap1.hana.ondemand.com/destinations/CUHK/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="Org.OData.Core.V1"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-a16zsievws.dispatcher.ap1.hana.ondemand.com/destinations/CUHK/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.Common.v1"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-a16zsievws.dispatcher.ap1.hana.ondemand.com/destinations/CUHK/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-a16zsievws.dispatcher.ap1.hana.ondemand.com/destinations/CUHK/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="Org.OData.Measures.V1"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-a16zsievws.dispatcher.ap1.hana.ondemand.com/destinations/CUHK/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_TIMELINE',Version='0001',SAP__Origin='LOCAL')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.Timeline.v1"/></edmx:Reference>
+	<edmx:Reference
+		Uri="https://webidecp-a16zsievws.dispatcher.ap1.hana.ondemand.com/destinations/CUHK/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.UI.v1"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="ZCI_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="CIHEAD" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/></Key><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="AdminApproved" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Admin Approved"/><Property Name="AdminInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Single-Character Flag"/><Property Name="Administrator" Type="Edm.String" Nullable="false" MaxLength="12" sap:filterable="false" sap:label="Administrator"/><Property Name="Agreementno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Agreement No./Other Ref."/><Property Name="Asigned" Type="Edm.Boolean" Nullable="false" sap:filterable="false" sap:label="Authorized Signature"/><Property Name="Bankaccountno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Bank Account No."/><Property Name="BudgCodeInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Single-Character Flag"/><Property Name="ChgBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:filterable="false" sap:label="Changed by"/><Property Name="ChgDate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Changed On"/><Property Name="ChgTime" Type="Edm.Time" Nullable="false" Precision="0" sap:filterable="false" sap:label="Changed at"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Cinos" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="CI Numbers"/><Property Name="CloseReason" Type="Edm.String" Nullable="false" MaxLength="250" sap:filterable="false" sap:label="Close reason"/><Property Name="Createdname" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Creator Name"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:filterable="false" sap:label="Created By"/><Property Name="CrtDate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Created On"/><Property Name="CrtTime" Type="Edm.Time" Nullable="false" Precision="0" sap:filterable="false" sap:label="Time"/><Property Name="CtDept" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Department"/><Property Name="CtEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="E-Mail Address"/><Property Name="CtFax" Type="Edm.String" Nullable="false" MaxLength="30" sap:filterable="false" sap:label="Fax"/><Property Name="CtPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Contact Person"/><Property Name="CtTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Tel No"/><Property Name="CustEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Customer Email Address"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="130" sap:label="Customer Name"/><Property Name="Custpadddrl1" Type="Edm.String" Nullable="false" MaxLength="45" sap:filterable="false"
+					sap:label="Customer Postal Address Line 1"/><Property Name="Custpadddrl2" Type="Edm.String" Nullable="false" MaxLength="45" sap:filterable="false"
+					sap:label="Customer Postal Address Line 2"/><Property Name="Custpadddrl3" Type="Edm.String" Nullable="false" MaxLength="45" sap:filterable="false"
+					sap:label="Customer Postal Address Line 3"/><Property Name="Custpadddrl4" Type="Edm.String" Nullable="false" MaxLength="45" sap:filterable="false"
+					sap:label="Customer Postal Address Line 4"/><Property Name="CustPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Customer Contact Per"/><Property Name="CustTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Phone No."/><Property Name="DeleteReason" Type="Edm.String" Nullable="false" MaxLength="500" sap:filterable="false" sap:label="Delete Reason"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false" sap:label="Department Code"/><Property Name="Deptcorraddrl1" Type="Edm.String" Nullable="false" MaxLength="45" sap:filterable="false"
+					sap:label="Dept. Correspondence Address Line"/><Property Name="Deptcorraddrl2" Type="Edm.String" Nullable="false" MaxLength="45" sap:filterable="false"
+					sap:label="Dept. Correspondence Address Line"/><Property Name="Deptcorraddrl3" Type="Edm.String" Nullable="false" MaxLength="45" sap:filterable="false"
+					sap:label="Dept. Correspondence Address Line"/><Property Name="Deptcorraddrl4" Type="Edm.String" Nullable="false" MaxLength="45" sap:filterable="false"
+					sap:label="Dept. Correspondence Address Line"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Division/Unit"/><Property Name="EndorseInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Single-Character Flag"/><Property Name="Endorser" Type="Edm.String" Nullable="false" MaxLength="12" sap:filterable="false" sap:label="User Name"/><Property Name="HeaderInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Show Header Ind."/><Property Name="Hnotes" Type="Edm.String" Nullable="false" MaxLength="500" sap:filterable="false"
+					sap:label="Header Notes (for printing before line items on invoice)"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Invoice Date"/><Property Name="ItemAccInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Show Item/Acc"/><Property Name="Method" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Invoice Sent Method"/><Property Name="Notes" Type="Edm.String" Nullable="false" MaxLength="500" sap:filterable="false"
+					sap:label="Footer Notes (for printing after line it"/><Property Name="Parameter" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="Parameter"/><Property Name="Paymentduedate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Payment Due Date"/><Property Name="PreparedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:filterable="false" sap:label="Prepared By"/><Property Name="PreparerName" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Preparer Name"/><Property Name="PrjIdInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Single-Character Flag"/><Property Name="ProductTypeInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Single-Character Flag"/><Property Name="Projectref" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Project Reference"/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Reference 1"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false"
+					sap:label="Non-disclosure Agree. Remarks"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Reference 3"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Reference 4"/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Reference 5"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Department reference"/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="30" sap:filterable="false"
+					sap:label="Service/Section/Unit/Category"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Project/Research Reference"/><Property Name="Reference9" Type="Edm.Boolean" Nullable="false" sap:filterable="false" sap:label="With Non-disclosure"/><Property Name="Remarkdept" Type="Edm.String" Nullable="false" MaxLength="254" sap:filterable="false"
+					sap:label="Remarks for Department’s Internal Use"/><Property Name="ReturnReason" Type="Edm.String" Nullable="false" MaxLength="500" sap:filterable="false" sap:label="Return Reason"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Role"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:filterable="false" sap:label="Status"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="Tolamt" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unit="Waers" sap:label="Total Amount"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:semantics="currency-code"/><Property Name="Zprinttimes" Type="Edm.String" Nullable="false" MaxLength="4" sap:filterable="false" sap:label="Print Times"/><NavigationProperty Name="CIHEADTOAPP" Relationship="ZCI_SRV.CIHEADTOAPP" FromRole="FromRole_CIHEADTOAPP" ToRole="ToRole_CIHEADTOAPP"/><NavigationProperty Name="CIHEADTOPATH" Relationship="ZCI_SRV.CIHEADTOPATH" FromRole="FromRole_CIHEADTOPATH" ToRole="ToRole_CIHEADTOPATH"/><NavigationProperty Name="CIHEADTOLOG" Relationship="ZCI_SRV.CIHEADTOLOG" FromRole="FromRole_CIHEADTOLOG" ToRole="ToRole_CIHEADTOLOG"/><NavigationProperty Name="CIHEADTODOC" Relationship="ZCI_SRV.CIHEADTODOC" FromRole="FromRole_CIHEADTODOC" ToRole="ToRole_CIHEADTODOC"/><NavigationProperty Name="CIHEADTOHIS" Relationship="ZCI_SRV.CIHEADTOHIS" FromRole="FromRole_CIHEADTOHIS" ToRole="ToRole_CIHEADTOHIS"/><NavigationProperty Name="CIHEADTOITEM" Relationship="ZCI_SRV.CIHEADTOITEM" FromRole="FromRole_CIHEADTOITEM" ToRole="ToRole_CIHEADTOITEM"/></EntityType>
+			<EntityType Name="CIITEM" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/><PropertyRef Name="Ciitem"/></Key><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="1037" sap:label="Description"/><Property Name="ProductType" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Product type"/><Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Foreign Currency Amount"/><Property Name="Ciitem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Invoice item No"/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 1"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 3"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 4"/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 5"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 6"/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 7"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 8"/><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 9"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 10"/><NavigationProperty Name="CIITEMTOACC" Relationship="ZCI_SRV.CIITEMTOACC" FromRole="FromRole_CIITEMTOACC" ToRole="ToRole_CIITEMTOACC"/></EntityType>
+			<EntityType Name="CIPATH" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/><PropertyRef Name="Role"/><PropertyRef Name="Seqnr"/><PropertyRef Name="Uname"/></Key><Property Name="Endorsedname" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Bud.Holder Name"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Role"/><Property Name="Seqnr" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="IT record no."/><Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User Name"/><Property Name="Updat" Type="Edm.DateTime" Precision="7" sap:label="Date"/><Property Name="Uptim" Type="Edm.Time" Precision="0" sap:label="Time"/><Property Name="ReturnReason" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Return Reason"/></EntityType>
+			<EntityType Name="CIHIS" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/><PropertyRef Name="Status"/></Key><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="TimesEmail" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Email Times"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By"/><Property Name="Begda" Type="Edm.DateTime" Precision="7" sap:label="Start Date"/><Property Name="CrtDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Created On"/><Property Name="Begtm" Type="Edm.Time" Precision="0" sap:label="Start time"/><Property Name="CrtTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time"/><Property Name="Endda" Type="Edm.DateTime" Precision="7" sap:label="End Date"/><Property Name="ChgBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Changed by"/><Property Name="Endtm" Type="Edm.Time" Precision="0" sap:label="End time"/><Property Name="ChgDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Changed On"/><Property Name="Timeused" Type="Edm.Decimal" Nullable="false" Precision="11" Scale="0" sap:label="Travel duration"/><Property Name="ChgTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Changed at"/></EntityType>
+			<EntityType Name="CIDOC" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/><PropertyRef Name="Docno"/></Key><Property Name="Content" Type="Edm.String" Nullable="false" sap:label="content"/><Property Name="Email" Type="Edm.Boolean" Nullable="false" sap:label="Attach to Email"/><Property Name="Fname" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Filename"/><Property Name="Doctype" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Doc Type"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Path" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Path"/><Property Name="Fno" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="FNO"/><Property Name="Dept" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Department"/><Property Name="Parent" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Parent Folder"/><Property Name="Updat" Type="Edm.DateTime" Precision="7" sap:label="Date"/><Property Name="Uptim" Type="Edm.Time" Precision="0" sap:label="Time"/><Property Name="Docno" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Doc No."/></EntityType>
+			<EntityType Name="PDF" m:HasStream="true" sap:content-version="1">
+				<Key><PropertyRef Name="Preview"/><PropertyRef Name="No"/><PropertyRef Name="Version"/></Key><Property Name="MimeType" Type="Edm.String" Nullable="false"/><Property Name="Preview" Type="Edm.String" Nullable="false"/><Property Name="No" Type="Edm.String" Nullable="false" MaxLength="10"/><Property Name="Version" Type="Edm.String" Nullable="false" MaxLength="2"/><Property Name="URL" Type="Edm.String" Nullable="false"/></EntityType>
+			<EntityType Name="ADMIN" sap:content-version="1">
+				<Key><PropertyRef Name="Staffac"/></Key><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10"/><Property Name="Staffac" Type="Edm.String" Nullable="false" MaxLength="12"/><Property Name="Staffname" Type="Edm.String" Nullable="false" MaxLength="70"/><Property Name="DisName" Type="Edm.String" Nullable="false" MaxLength="80"/></EntityType>
+			<EntityType Name="CURRENCY" sap:content-version="1">
+				<Key><PropertyRef Name="Waers"/></Key><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:semantics="currency-code"/><Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Long Text"/></EntityType>
+			<EntityType Name="COSTCENTER" sap:content-version="1">
+				<Key><PropertyRef Name="Kostl"/></Key><Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Cost Center"/><Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Name"/><Property Name="Ltext" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description"/></EntityType>
+			<EntityType Name="COUNTRY" sap:content-version="1">
+				<Key><PropertyRef Name="Land1"/></Key><Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Ctry/Region"/><Property Name="Landx" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Name"/></EntityType>
+			<EntityType Name="MASSREASSIGNCI" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/></Key><Property Name="PreparedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Prepared By"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="PreparerName" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Preparer Name"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Status Description"/></EntityType>
+			<EntityType Name="STAFF" sap:content-version="1">
+				<Key><PropertyRef Name="Eform"/><PropertyRef Name="Role"/><PropertyRef Name="Staffid"/></Key><Property Name="Eform" Type="Edm.String" Nullable="false" MaxLength="1"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="1"/><Property Name="Staffid" Type="Edm.String" Nullable="false" MaxLength="12" sap:text="Name"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="40"/><Property Name="Disname" Type="Edm.String" Nullable="false" MaxLength="80"/></EntityType>
+			<EntityType Name="CISTATUS" sap:content-version="1">
+				<Key><PropertyRef Name="Status"/></Key><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="Description"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="60"/></EntityType>
+			<EntityType Name="RVSTATUS" sap:content-version="1">
+				<Key><PropertyRef Name="Status"/></Key><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="Description"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="60"/></EntityType>
+			<EntityType Name="CI_WORKLIST_PREPARER" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/></Key><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="Agreementno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Agreement No./Other Ref."/><Property Name="Bankaccountno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Bank Account No."/><Property Name="ChgDate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Changed On"/><Property Name="ChgDateRv" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false"
+					sap:label="Time of last update of RV status"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Created by"/><Property Name="CrtDate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Created on"/><Property Name="CtDept" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Contact Department"/><Property Name="CtEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="E-Mail Address"/><Property Name="CtFax" Type="Edm.String" Nullable="false" MaxLength="30" sap:filterable="false" sap:label="Fax"/><Property Name="CtPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Contact Person"/><Property Name="CtTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Phone No."/><Property Name="CustEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Customer Email Address"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Customer Name"/><Property Name="CustPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Customer Contact Per"/><Property Name="CustTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Contact Number"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="1037" sap:filterable="false" sap:label="Description"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Division/Unit"/><Property Name="Duedate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Payment Due Date"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Invoice Date"/><Property Name="PreparerName" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Preparer Name"/><Property Name="Projectref" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project Reference"/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 1"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Non-disclosure Agree. Remarks"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 3"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 4"/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 5"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Department reference"/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="30" sap:filter-restriction="single-value"
+					sap:label="Service/Section/Unit/Category"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project/Research Reference"/><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="1" sap:filter-restriction="single-value"
+					sap:label="With Non-disclosure" sap:value-list="fixed-values"/><Property Name="Remarkdept" Type="Edm.String" Nullable="false" MaxLength="254" sap:filter-restriction="single-value"
+					sap:label="Remarks for Department’s Internal Use"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Role"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="false" sap:label="RV No."/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="StatusRv" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="false" sap:label="RV Status"/><Property Name="StatusRvtext" Type="Edm.String" Nullable="false" MaxLength="1000" sap:filterable="false" sap:label="RV Status Description"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="Tolamt" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers" sap:label="Total Amount"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:value-list="fixed-values"
+					sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="CI_WORKLIST_ADMIN" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/></Key><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="Agreementno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Agreement No./Other Ref."/><Property Name="ChgDate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Changed On"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Created by"/><Property Name="CustEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Customer Email Address"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Customer Name"/><Property Name="CustPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Customer Contact Per"/><Property Name="CustTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Contact Number"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="1037" sap:filterable="false" sap:label="Description"/><Property Name="Duedate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Payment Due Date"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Invoice Date"/><Property Name="PreparerName" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Preparer Name"/><Property Name="Projectref" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project Reference"/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 1"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Non-disclosure Agree. Remarks"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 3"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 4"/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 5"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Department reference"/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="30" sap:filter-restriction="single-value"
+					sap:label="Service/Section/Unit/Category"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project/Research Reference"/><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="1" sap:filter-restriction="single-value"
+					sap:label="With Non-disclosure" sap:value-list="fixed-values"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="Tolamt" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers" sap:label="Total Amount"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:value-list="fixed-values"
+					sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="CICHANGELOG" sap:content-version="1">
+				<Key><PropertyRef Name="Changenr"/><PropertyRef Name="Cino"/><PropertyRef Name="Tabname"/><PropertyRef Name="Fname"/><PropertyRef Name="Chngind"/><PropertyRef Name="ValueNew"/><PropertyRef Name="ValueOld"/></Key><Property Name="Changenr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Document Number"/><Property Name="Ciitem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Invoice item No"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Zekkn" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Seq.No.Acc.Ass."/><Property Name="Udate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Date"/><Property Name="Utime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time"/><Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User"/><Property Name="Tabname" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Table Name"/><Property Name="Fname" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Field Name"/><Property Name="Ddtext" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Short text"/><Property Name="Chngind" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Change Ind."/><Property Name="ValueNew" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="New value"/><Property Name="ValueOld" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Old value"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Staff Name"/></EntityType>
+			<EntityType Name="RVHEAD" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/></Key><Property Name="Acc" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Cost Ctr/Proj/IO/Bus. Area"/><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="Invoice Admin Party"/><Property Name="AdminApproved" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Admin Approved"/><Property Name="AdminInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag"/><Property Name="Administrator" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Administrator"/><Property Name="Amtinv" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Bankinwaers" sap:label="Amount received for this Invoice"/><Property Name="AppPathInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Approv Path Ind."/><Property Name="Bankaccountno" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Bank Account No."/><Property Name="Bankaccountnock" Type="Edm.Boolean" Nullable="false" sap:label="Bank Account No. Che"/><Property Name="Bankindate" Type="Edm.DateTime" Precision="7" sap:label="Bank-in Date"/><Property Name="Bankindateck" Type="Edm.Boolean" Nullable="false" sap:label="Bank-in Date Checked"/><Property Name="Bankinwaers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Bank-in Currency" sap:semantics="currency-code"/><Property Name="Bankname" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Bank Name"/><Property Name="Bankxfermeth" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Bank Transfer Method"/><Property Name="Budat" Type="Edm.DateTime" Precision="7" sap:label="Posting Date"/><Property Name="BudgCodeInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag"/><Property Name="CancelReason" Type="Edm.String" Nullable="false" MaxLength="500" sap:label="Reason for Cancel"/><Property Name="Chqbankinmeth" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Cheque Bank-in Method"/><Property Name="Chqno" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Cheque No."/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="CloseReason" Type="Edm.String" Nullable="false" MaxLength="250" sap:label="Close reason"/><Property Name="Createdname" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Creator Name"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By"/><Property Name="CrtDate" Type="Edm.DateTime" Precision="7" sap:label="Created On"/><Property Name="CtDept" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Department"/><Property Name="Cusapbelnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="CUSAP Document No."/><Property Name="Cusapbudat" Type="Edm.DateTime" Precision="7" sap:label="CUSAP Posting Date"/><Property Name="Cusremitcurr" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Customer Remittance Curr."
+					sap:semantics="currency-code"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="130" sap:label="Customer Name"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Department Code"/><Property Name="Endorsedname" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Endorsed Name"/><Property Name="EndorseInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag"/><Property Name="Endorser" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User Name"/><Property Name="Fulinvck" Type="Edm.Boolean" Nullable="false" sap:label="Full Settlement of Invoice"/><Property Name="GenEnqInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="General Enquiry Ind."/><Property Name="HeaderInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Show Header Ind."/><Property Name="HoldReason1" Type="Edm.Boolean" Nullable="false" sap:label="Not properly BHD"/><Property Name="HoldReason2" Type="Edm.Boolean" Nullable="false" sap:label="Incorrect funding so"/><Property Name="HoldReason3" Type="Edm.Boolean" Nullable="false" sap:label="funding info error"/><Property Name="HoldReason4" Type="Edm.Boolean" Nullable="false" sap:label="doc error"/><Property Name="HoldReason4t" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Hold reason6 text"/><Property Name="HoldReason5" Type="Edm.Boolean" Nullable="false" sap:label="endors error"/><Property Name="HoldReason5t" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Hold reason8 text"/><Property Name="HoldReason6" Type="Edm.Boolean" Nullable="false" sap:label="Others"/><Property Name="HoldReason6t" Type="Edm.String" Nullable="false" MaxLength="750" sap:label="Hold reason9 text"/><Property Name="HoldReason7" Type="Edm.Boolean" Nullable="false" sap:label="The e-form hardcopy is being returned to you by internal mai"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Invoice Date"/><Property Name="ItemAccInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Show Item/Acc"/><Property Name="Itemdesc" Type="Edm.String" Nullable="false" sap:label="Item Description"/><Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Message to Dept."/><Property Name="Notes" Type="Edm.String" Nullable="false" MaxLength="500" sap:label="Footer Notes (for printing after line it"/><Property Name="Notesp" Type="Edm.String" Nullable="false" MaxLength="500" sap:label="Notes (for printing on payment voucher)"/><Property Name="Parameter" Type="Edm.String" Nullable="false" sap:label="Parameter"/><Property Name="Paymenttype" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Payment Type"/><Property Name="Paymenttyper" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Payment Type"/><Property Name="PreparedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Prepared By"/><Property Name="PreparerName" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Preparer Name"/><Property Name="PrjIdInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag"/><Property Name="ProductTypeInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Single-Character Flag"/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 1"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Non-disclosure Agree. Remarks"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 3"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 4"/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 5"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Department reference"/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Service/Section/Unit/Category"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Project/Research Reference"/><Property Name="Reference9" Type="Edm.Boolean" Nullable="false" sap:label="With Non-disclosure"/><Property Name="Refwkurs" Type="Edm.Decimal" Precision="9" Scale="5" sap:label="Reference Exch. Rate"/><Property Name="RemarkDept" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Remarks for Department’s Internal Use"/><Property Name="RemarkFo" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Remarks for FNO’s Internal Use"/><Property Name="Remarkinfofo" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Remarks for FNO’s Information"/><Property Name="ReturnReason" Type="Edm.String" Nullable="false" MaxLength="500" sap:label="Return Reason"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Role"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Rvnos" Type="Edm.String" Nullable="false" sap:label="RV Numbers"/><Property Name="Sakto" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="G/L Account"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Status Description"/><Property Name="SubAdmInd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Submit to Admin Ind."/><Property Name="TolAmt" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Waers" sap:label="Total Amount"/><Property Name="Tolbankinamt" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Bankinwaers" sap:label="Total Bank-in Amount"/><Property Name="Tolbankinamtcal" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Bankinwaers" sap:label="Total Bank-in Amount(Items)"/><Property Name="Tolbankinamtck" Type="Edm.Boolean" Nullable="false" sap:label="Total Bank-in Amount Checked"/><Property Name="Tolcusremitamt" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Cusremitcurr"
+					sap:label="Total Customer Remittance Amt."/><Property Name="Tolhkdeq" Type="Edm.Decimal" Precision="16" Scale="3" sap:label="Total HKD Equivalent"/><Property Name="Tolinvosdamt" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Waers" sap:label="Total Invoice Outstanding Amount"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:semantics="currency-code"/><Property Name="Zprinttimes" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Print Times"/><NavigationProperty Name="RVHEADTOITEM" Relationship="ZCI_SRV.RVHEADTOITEM" FromRole="FromRole_RVHEADTOITEM" ToRole="ToRole_RVHEADTOITEM"/><NavigationProperty Name="RVHEADTOAPP" Relationship="ZCI_SRV.RVHEADTOAPP" FromRole="FromRole_RVHEADTOAPP" ToRole="ToRole_RVHEADTOAPP"/><NavigationProperty Name="RVHEADTOHIS" Relationship="ZCI_SRV.RVHEADTOHIS" FromRole="FromRole_RVHEADTOHIS" ToRole="ToRole_RVHEADTOHIS"/><NavigationProperty Name="RVHEADTOLOG" Relationship="ZCI_SRV.RVHEADTOLOG" FromRole="FromRole_RVHEADTOLOG" ToRole="ToRole_RVHEADTOLOG"/><NavigationProperty Name="RVHEADTODOC" Relationship="ZCI_SRV.RVHEADTODOC" FromRole="FromRole_RVHEADTODOC" ToRole="ToRole_RVHEADTODOC"/><NavigationProperty Name="RVHEADTOPATH" Relationship="ZCI_SRV.RVHEADTOPATH" FromRole="FromRole_RVHEADTOPATH" ToRole="ToRole_RVHEADTOPATH"/></EntityType>
+			<EntityType Name="RVITEM" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/><PropertyRef Name="Rvitem"/></Key><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Ciitem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Invoice item No"/><Property Name="Rvitem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="RV Item No."/><Property Name="Txz01" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Text"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:semantics="currency-code"/><Property Name="Cusremitcurr" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Customer Remittance Curr."
+					sap:semantics="currency-code"/><Property Name="Bankinwaers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Bank-in Currency" sap:semantics="currency-code"/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 1"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 3"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 4"/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 5"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 6"/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 7"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 8"/><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 9"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Reference 10"/><Property Name="ProductType" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Product type"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By"/><Property Name="Invosd" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Waers" sap:label="Invoice Outstanding Amount"/><Property Name="Cusremitamt" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Cusremitcurr" sap:label="Customer Remittance Amt."/><Property Name="Bankinamt" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Bankinwaers" sap:label="Bank-in Amount"/><Property Name="Hkdeq" Type="Edm.Decimal" Precision="16" Scale="3" sap:label="HKD Equivalent"/><Property Name="CrtDate" Type="Edm.DateTime" Precision="7" sap:label="Created On"/><Property Name="Fundappr" Type="Edm.Boolean" Nullable="false" sap:label="Funding Approved"/><NavigationProperty Name="RVITEMTOACC" Relationship="ZCI_SRV.RVITEMTOACC" FromRole="FromRole_RVITEMTOACC" ToRole="ToRole_RVITEMTOACC"/></EntityType>
+			<EntityType Name="RVDOC" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/><PropertyRef Name="Docno"/></Key><Property Name="Content" Type="Edm.String" Nullable="false" sap:label="content"/><Property Name="Fname" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Filename"/><Property Name="Doctype" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Doc Type"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Path" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Path"/><Property Name="Fno" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="FNO"/><Property Name="Dept" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Department"/><Property Name="Parent" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Parent Folder"/><Property Name="Updat" Type="Edm.DateTime" Precision="7" sap:label="Date"/><Property Name="Uptim" Type="Edm.Time" Precision="0" sap:label="Time"/><Property Name="Docno" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Doc No."/></EntityType>
+			<EntityType Name="RVACC" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/><PropertyRef Name="Rvitem"/><PropertyRef Name="Zekkn"/></Key><Property Name="StaffRptDept" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Reporting department"/><Property Name="FnoResp2" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="FNO Resp. Person 2"/><Property Name="Approved" Type="Edm.Boolean" Nullable="false" sap:label="Funding Approved"/><Property Name="FnoResp2Name" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="FNO Resp. 2 - Name"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Bank-in Currency" sap:semantics="currency-code"/><Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unit="Waers" sap:label="Bank-in Amount"/><Property Name="CrtDate" Type="Edm.DateTime" Precision="7" sap:label="Created On"/><Property Name="CrtTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time"/><Property Name="Releaseddate" Type="Edm.DateTime" Precision="7" sap:label="Date"/><Property Name="ChgBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Changed by"/><Property Name="ChgDate" Type="Edm.DateTime" Precision="7" sap:label="Changed On"/><Property Name="Hkdeq" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="HKD Equivalent"/><Property Name="ChgTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Changed at"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Rvitem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="RV Item No."/><Property Name="Zekkn" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Seq.No.Acc.Ass."/><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company Code"/><Property Name="Gsber" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Business Area"/><Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Cost Center"/><Property Name="Projn" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="WBS element"/><Property Name="Sakto" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="G/L Account"/><Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Order"/><Property Name="Assignment" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Assignment"/><Property Name="ForwardedToName" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Forwarded To - Name"/><Property Name="ForwardedTo" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Forwarded To"/><Property Name="ForwardedByName" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Forwarded By - Name"/><Property Name="ForwardedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Forwarded By"/><Property Name="ZapprovedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Funding Approved By"/><Property Name="ZapprovedByName" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Funding AppBy - Name"/><Property Name="Budhd" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Budget Holder"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Bud.Holder Name"/><Property Name="FnoResp1" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="FNO Resp. Person 1"/><Property Name="FnoResp1Name" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="FNO Resp. 1 - Name"/><Property Name="BudgCode" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Budget Code"/><Property Name="PrjId" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Project ID"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Role"/></EntityType>
+			<EntityType Name="RVAPP" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/><PropertyRef Name="Budhd"/><PropertyRef Name="Name1"/><PropertyRef Name="Costwbs"/></Key><Property Name="CrtTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Budhd" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Budget Holder"/><Property Name="ChgBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Changed by"/><Property Name="ChgDate" Type="Edm.DateTime" Precision="7" sap:label="Changed On"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Bud.Holder Name"/><Property Name="ChgTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Changed at"/><Property Name="Delegate" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Delegate Name"/><Property Name="Costwbs" Type="Edm.String" Nullable="false" MaxLength="200" sap:label="Cost Center/WBS"/><Property Name="Aedat" Type="Edm.DateTime" Precision="7" sap:label="Approved On"/><Property Name="Box1" Type="Edm.Boolean" Nullable="false" sap:label="Approver Checkbox1"/><Property Name="Box2" Type="Edm.Boolean" Nullable="false" sap:label="Approver Checkbox2"/><Property Name="Box3" Type="Edm.Boolean" Nullable="false" sap:label="Approver Checkbox3"/><Property Name="Declaration" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Declaration"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By"/><Property Name="CrtDate" Type="Edm.DateTime" Precision="7" sap:label="Created On"/></EntityType>
+			<EntityType Name="MASSREASSIGNRV" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/></Key><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="PreparedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Prepared By"/><Property Name="PreparerName" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Preparer Name"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Status Description"/></EntityType>
+			<EntityType Name="RVHIS" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/><PropertyRef Name="Status"/><PropertyRef Name="Begda"/><PropertyRef Name="Begtm"/></Key><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status"/><Property Name="Begda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Start Date"/><Property Name="Begtm" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Start time"/><Property Name="Endda" Type="Edm.DateTime" Precision="7" sap:label="End Date"/><Property Name="Endtm" Type="Edm.Time" Precision="0" sap:label="End time"/><Property Name="Timeused" Type="Edm.Decimal" Nullable="false" Precision="11" Scale="0" sap:label="Travel duration"/><Property Name="TimesEmail" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Email Times"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By"/><Property Name="CrtDate" Type="Edm.DateTime" Precision="7" sap:label="Created On"/></EntityType>
+			<EntityType Name="RVCHANGELOG" sap:content-version="1">
+				<Key><PropertyRef Name="Changenr"/><PropertyRef Name="Rvno"/><PropertyRef Name="Tabname"/><PropertyRef Name="Fname"/><PropertyRef Name="Chngind"/><PropertyRef Name="ValueNew"/><PropertyRef Name="ValueOld"/></Key><Property Name="Changenr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Document Number"/><Property Name="Rvitem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="RV Item No."/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Zekkn" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Seq.No.Acc.Ass."/><Property Name="Udate" Type="Edm.DateTime" Precision="7" sap:label="Date"/><Property Name="Utime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time"/><Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User"/><Property Name="Tabname" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Table Name"/><Property Name="Fname" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Field Name"/><Property Name="Ddtext" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Short text"/><Property Name="Chngind" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Change Ind."/><Property Name="ValueNew" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="New value"/><Property Name="ValueOld" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Old value"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Staff Name"/></EntityType>
+			<EntityType Name="CIACC" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/><PropertyRef Name="Ciitem"/><PropertyRef Name="Zekkn"/></Key><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Ciitem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Invoice item No"/><Property Name="Zekkn" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Seq.No.Acc.Ass."/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:semantics="currency-code"/><Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unit="Waers" sap:label="Foreign Currency Amount"/><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company Code"/><Property Name="Gsber" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Business Area"/><Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Cost Center"/><Property Name="Projn" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="WBS element"/><Property Name="Sakto" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="G/L Account"/><Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Order"/><Property Name="Budhd" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Budget Holder"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Bud.Holder Name"/><Property Name="BudgCode" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Budget Code"/><Property Name="FnoResp1Name" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="FNO Resp. 1 - Name"/><Property Name="PrjId" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Project ID"/><Property Name="FnoResp1" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="FNO Resp. Person 1"/></EntityType>
+			<EntityType Name="CIAPP" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/><PropertyRef Name="Budhd"/></Key><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Budhd" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Budget Holder"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Bud.Holder Name"/><Property Name="Delegate" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Delegate Name"/><Property Name="Costwbs" Type="Edm.String" Nullable="false" MaxLength="200" sap:label="Cost Center/WBS"/><Property Name="Aedat" Type="Edm.DateTime" Precision="7" sap:label="Approved On"/><Property Name="Box1" Type="Edm.Boolean" Nullable="false" sap:label="Approver Checkbox1"/><Property Name="Box2" Type="Edm.Boolean" Nullable="false" sap:label="Approver Checkbox2"/><Property Name="Box3" Type="Edm.Boolean" Nullable="false" sap:label="Approver Checkbox3"/><Property Name="Declaration" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Declaration"/></EntityType>
+			<EntityType Name="ROLE" sap:content-version="1">
+				<Key><PropertyRef Name="Role"/></Key><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="5"/></EntityType>
+			<EntityType Name="RETURN_MSG" sap:content-version="1">
+				<Key><PropertyRef Name="ReturnType"/></Key><Property Name="ReturnMsg" Type="Edm.String" Nullable="false" MaxLength="255"/><Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="100"/><Property Name="Value1" Type="Edm.String" Nullable="false" MaxLength="100"/><Property Name="Value2" Type="Edm.String" Nullable="false" MaxLength="100"/><Property Name="ReturnType" Type="Edm.String" Nullable="false" MaxLength="1"/><Property Name="Value3" Type="Edm.String" Nullable="false" MaxLength="100"/></EntityType>
+			<EntityType Name="LINES" sap:content-version="1">
+				<Key><PropertyRef Name="LINEID"/></Key><Property Name="LINEID" Type="Edm.Int32" Nullable="false"/><Property Name="CONTENS" Type="Edm.String" Nullable="false"/></EntityType>
+			<EntityType Name="FORWPERS" sap:content-version="1">
+				<Key><PropertyRef Name="Staffid"/></Key><Property Name="Staffac" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User"/><Property Name="Staffid" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Staff ID"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="CUHK Staff NAME"/><Property Name="DisName" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Display name: Ext1 + Ext2"/></EntityType>
+			<EntityType Name="RVPATH" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/><PropertyRef Name="Role"/><PropertyRef Name="Seqnr"/><PropertyRef Name="Uname"/></Key><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Role"/><Property Name="Seqnr" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="IT record no."/><Property Name="Uname" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User Name"/><Property Name="Updat" Type="Edm.DateTime" Precision="7" sap:label="Date"/><Property Name="Uptim" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time"/><Property Name="ReturnReason" Type="Edm.String" Nullable="false" MaxLength="500" sap:label="Return Reason"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Created By"/><Property Name="CrtDate" Type="Edm.DateTime" Precision="7" sap:label="Created On"/><Property Name="CrtTime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time"/><Property Name="Endorsedname" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Bud.Holder Name"/></EntityType>
+			<EntityType Name="BUAREA" sap:content-version="1">
+				<Key><PropertyRef Name="Gsber"/></Key><Property Name="Gsber" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Business Area"/><Property Name="Gtext" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Business area"/></EntityType>
+			<EntityType Name="BUDGETCODE" sap:content-version="1">
+				<Key><PropertyRef Name="DeptCode"/><PropertyRef Name="BudgCode"/></Key><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Department Code"/><Property Name="BudgCode" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Budget Code"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="200" sap:label="Description"/></EntityType>
+			<EntityType Name="COMPANY" sap:content-version="1">
+				<Key><PropertyRef Name="Bukrs"/></Key><Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company Code"/><Property Name="Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Company Name"/></EntityType>
+			<EntityType Name="AUFNR" sap:content-version="1">
+				<Key><PropertyRef Name="DeptCode"/><PropertyRef Name="Aufnr"/></Key><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10"/><Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40"/></EntityType>
+			<EntityType Name="ACCODE" sap:content-version="1">
+				<Key><PropertyRef Name="BudgCode"/><PropertyRef Name="DeptCode"/><PropertyRef Name="Saknr"/></Key><Property Name="BudgCode" Type="Edm.String" Nullable="false" MaxLength="30"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10"/><Property Name="Saknr" Type="Edm.String" Nullable="false" MaxLength="10"/><Property Name="Txt50" Type="Edm.String" Nullable="false" MaxLength="50"/></EntityType>
+			<EntityType Name="ENDORSER" sap:content-version="1">
+				<Key><PropertyRef Name="RptDept"/><PropertyRef Name="Staffac"/></Key><Property Name="Staffid" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Staff ID"/><Property Name="Staffname" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Staff Name"/><Property Name="Displayname" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Display Name"/><Property Name="RptDept" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Department"/><Property Name="Staffac" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User"/></EntityType>
+			<EntityType Name="USER" sap:content-version="1">
+				<Key><PropertyRef Name="USRID"/></Key><Property Name="USRID" Type="Edm.String" Nullable="false" MaxLength="12"/></EntityType>
+			<EntityType Name="PRODUCT_TYPE" sap:content-version="1">
+				<Key><PropertyRef Name="PrdType"/><PropertyRef Name="DeptCode"/></Key><Property Name="PrdType" Type="Edm.String" Nullable="false" MaxLength="30"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="200"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10"/></EntityType>
+			<EntityType Name="CHANGELOGCI" sap:content-version="1">
+				<Key><PropertyRef Name="Changenr"/><PropertyRef Name="Cino"/><PropertyRef Name="Ciitem"/><PropertyRef Name="Zekkn"/><PropertyRef Name="Udate"/><PropertyRef Name="Utime"/><PropertyRef Name="Tabname"/><PropertyRef Name="Fname"/></Key><Property Name="Changenr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Document Number"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Ciitem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Invoice item No"/><Property Name="Zekkn" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Seq.No.Acc.Ass."/><Property Name="Udate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Date"/><Property Name="Utime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time"/><Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User"/><Property Name="Tabname" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Table Name"/><Property Name="Tabkey" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Table Key"/><Property Name="Fname" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Field Name"/><Property Name="Ddtext" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Short text"/><Property Name="Chngind" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Change Ind."/><Property Name="ValueNew" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="New value"/><Property Name="ValueOld" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Old value"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Staff Name"/></EntityType>
+			<EntityType Name="CHANGELOGRV" sap:content-version="1">
+				<Key><PropertyRef Name="Changenr"/><PropertyRef Name="Rvno"/><PropertyRef Name="Rvitem"/><PropertyRef Name="Zekkn"/><PropertyRef Name="Udate"/><PropertyRef Name="Utime"/><PropertyRef Name="Username"/><PropertyRef Name="Tabname"/><PropertyRef Name="Fname"/></Key><Property Name="Changenr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Document Number"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Rvitem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="RV Item No."/><Property Name="Zekkn" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Seq.No.Acc.Ass."/><Property Name="Udate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Date"/><Property Name="Utime" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Time"/><Property Name="Username" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User"/><Property Name="Tabname" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Table Name"/><Property Name="Tabkey" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Table Key"/><Property Name="Fname" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Field Name"/><Property Name="Ddtext" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Short text"/><Property Name="Chngind" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Change Ind."/><Property Name="ValueNew" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="New value"/><Property Name="ValueOld" Type="Edm.String" Nullable="false" MaxLength="254" sap:label="Old value"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Staff Name"/></EntityType>
+			<EntityType Name="RPT_OVERDUE" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/></Key><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Created by"/><Property Name="CtEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="E-Mail Address"/><Property Name="CtPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Department Contact Person"/><Property Name="CtTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Phone No."/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Customer Name"/><Property Name="Department" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value" sap:label="Department"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="1037" sap:filterable="false" sap:label="Description"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value" sap:label="Division/Unit"/><Property Name="Duedate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Payment Due Date"/><Property Name="Duedays" Type="Edm.Int32" Nullable="false" sap:filterable="false" sap:label="No. of Days Overdue"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Invoice Date"/><Property Name="Osamt" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:filterable="false" sap:unit="Waers"
+					sap:label="Outstanding Amount"/><Property Name="Overdue" Type="Edm.String" Nullable="false" MaxLength="1" sap:filter-restriction="single-value" sap:parameter="mandatory"
+					sap:label="No. of days overdue" sap:value-list="fixed-values"/><Property Name="Overdue1" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Overdue &lt; 1 Month"/><Property Name="Overdue2" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false"
+					sap:label="Overdue &gt;= 1 Month AND &lt; 3 Months"/><Property Name="Overdue3" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false"
+					sap:label="Overdue &gt;= 3 Months AND &lt; 6 Months"/><Property Name="Overdue4" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false"
+					sap:label="Overdue &gt;= 6 Months AND &lt; 9 Months"/><Property Name="Overdue5" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false"
+					sap:label="Overdue &gt;= 9 Months AND &lt; 1 Year"/><Property Name="Overdue6" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Overdue &gt;= 1 Year"/><Property Name="Overdue7" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Overdue &gt;= 2 Years"/><Property Name="Overdue8" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Overdue &gt;= 3 Years"/><Property Name="Tolamt" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="2" sap:unit="Waers" sap:label="Total Invoice Amount"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:value-list="fixed-values"
+					sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="RPT_OS" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/></Key><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="Agreementno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Agreement No./Other Ref."/><Property Name="Bankaccountno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Bank Account No."/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Created by"/><Property Name="CtEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="E-Mail Address"/><Property Name="CtPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Contact Person"/><Property Name="CtTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Contact Phone No."/><Property Name="CustEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Customer Email Address"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Customer Name"/><Property Name="CustPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Customer Contact Per"/><Property Name="CustTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Phone No."/><Property Name="Department" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Department"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Division/Unit"/><Property Name="Duedate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Payment Due Date"/><Property Name="Fnoresp" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="FNO Responsible Person 1"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Invoice Date"/><Property Name="Lastupdate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Changed On"/><Property Name="Lastupdates" Type="Edm.String" Nullable="false" MaxLength="1000" sap:filterable="false"
+					sap:label="Time of last update of RV status"/><Property Name="Osamt" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3" sap:filterable="false" sap:unit="Waers"
+					sap:label="Outstanding Amount"/><Property Name="Projectref" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project Reference"/><Property Name="Remarkdept" Type="Edm.String" Nullable="false" MaxLength="254" sap:filter-restriction="single-value"
+					sap:label="Remarks for Department’s Internal Use"/><Property Name="Rvno" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="RV No."/><Property Name="Rvstatus" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="RV Status"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:filterable="false" sap:label="Status"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="Tolamt" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="2" sap:unit="Waers" sap:label="Total Invoice Amount"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:value-list="fixed-values"
+					sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="RPT_CLOSED" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/></Key><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="Agreementno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Agreement No./Other Ref."/><Property Name="Amtinv" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:filterable="false" sap:unit="Waers"
+					sap:label="Amount received for this Invoice"/><Property Name="Bankaccountno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Bank Account No."/><Property Name="Bankinwaers" Type="Edm.String" Nullable="false" MaxLength="5" sap:filterable="false" sap:label="Bank-in Currency"
+					sap:semantics="currency-code"/><Property Name="ChgBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Changed by"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Cldate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Closed Date"/><Property Name="CloseReason" Type="Edm.String" Nullable="false" MaxLength="250" sap:filterable="false" sap:label="Close reason"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Created by"/><Property Name="CtEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="E-Mail Address"/><Property Name="CtPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Contact Person"/><Property Name="CtTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Contact Phone No."/><Property Name="CustEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Customer Email Address"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Customer Name"/><Property Name="CustPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Customer Contact Per"/><Property Name="CustTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Phone No."/><Property Name="Department" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Department"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Division/Unit"/><Property Name="Duedate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Payment Due Date"/><Property Name="Fnoresp" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="FNO Responsible Person 1"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Invoice Date"/><Property Name="Lastupdate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Changed On"/><Property Name="Lastupdates" Type="Edm.String" Nullable="false" MaxLength="1000" sap:filterable="false"
+					sap:label="Time of last update of RV status"/><Property Name="Osamt" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="2" sap:filterable="false" sap:unit="Waers"
+					sap:label="Outstanding Amount"/><Property Name="Projectref" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project Reference"/><Property Name="Rvno" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="RV No."/><Property Name="Rvstatus" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="RV Status"/><Property Name="Tolamt" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="2" sap:unit="Waers" sap:label="Total Invoice Amount"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:value-list="fixed-values"
+					sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="OVERDUE" sap:content-version="1">
+				<Key><PropertyRef Name="Overdue"/></Key><Property Name="Overdue" Type="Edm.String" Nullable="false" MaxLength="1" sap:text="Description"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40"/></EntityType>
+			<EntityType Name="SECTION" sap:content-version="1">
+				<Key><PropertyRef Name="SectCode"/><PropertyRef Name="DeptCode"/></Key><Property Name="SectCode" Type="Edm.String" Nullable="false" MaxLength="30"/><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="200"/></EntityType>
+			<EntityType Name="CI_WORKLIST_GENERAL" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/></Key><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="Agreementno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Agreement No./Other Ref."/><Property Name="Bankaccountno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Bank Account No."/><Property Name="ChgDate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Changed On"/><Property Name="ChgDateRv" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false"
+					sap:label="Time of last update of RV status"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="CloseReason" Type="Edm.String" Nullable="false" MaxLength="250" sap:filter-restriction="single-value"
+					sap:label="Close reason"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Created by"/><Property Name="CrtDate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Created on"/><Property Name="CtDept" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Contact Department"/><Property Name="CtEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="E-Mail Address"/><Property Name="CtFax" Type="Edm.String" Nullable="false" MaxLength="30" sap:filterable="false" sap:label="Fax"/><Property Name="CtPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Contact Person"/><Property Name="CtTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Phone No."/><Property Name="CustEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Customer Email Address"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Customer Name"/><Property Name="CustPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Customer Contact Per"/><Property Name="CustTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Contact Number"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="1037" sap:filterable="false" sap:label="Description"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Division/Unit"/><Property Name="Duedate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Payment Due Date"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Invoice Date"/><Property Name="PreparerName" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Preparer Name"/><Property Name="Projectref" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project Reference"/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 1"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Non-disclosure Agree. Remarks"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 3"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 4"/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 5"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Department reference"/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="30" sap:filter-restriction="single-value"
+					sap:label="Service/Section/Unit/Category"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project/Research Reference"/><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="1" sap:filter-restriction="single-value"
+					sap:label="With Non-disclosure" sap:value-list="fixed-values"/><Property Name="Remarkdept" Type="Edm.String" Nullable="false" MaxLength="254" sap:filter-restriction="single-value"
+					sap:label="Remarks for Department’s Internal Use"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Role"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="false" sap:label="RV No."/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="StatusRv" Type="Edm.String" Nullable="false" MaxLength="255" sap:filterable="false" sap:label="RV Status"/><Property Name="StatusRvtext" Type="Edm.String" Nullable="false" MaxLength="1000" sap:filterable="false" sap:label="RV Status Description"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="Tolamt" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers" sap:label="Total Amount"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:value-list="fixed-values"
+					sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="CI_WORKLIST_ENDORSER" sap:content-version="1">
+				<Key><PropertyRef Name="Cino"/></Key><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="Agreementno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Agreement No./Other Ref."/><Property Name="ChgDate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Changed On"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Created by"/><Property Name="CustEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Customer Email Address"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Customer Name"/><Property Name="CustPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Customer Contact Per"/><Property Name="CustTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Contact Number"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="1037" sap:filterable="false" sap:label="Description"/><Property Name="Duedate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Payment Due Date"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Invoice Date"/><Property Name="PreparerName" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="Preparer Name"/><Property Name="Projectref" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project Reference"/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 1"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Non-disclosure Agree. Remarks"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 3"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 4"/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 5"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Department reference"/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="30" sap:filter-restriction="single-value"
+					sap:label="Service/Section/Unit/Category"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project/Research Reference"/><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="1" sap:filter-restriction="single-value"
+					sap:label="With Non-disclosure" sap:value-list="fixed-values"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="Tolamt" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers" sap:label="Total Amount"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:value-list="fixed-values"
+					sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="CIBANK" sap:content-version="1">
+				<Key><PropertyRef Name="Banno"/></Key><Property Name="Banno" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Bank Account No." sap:value-list="fixed-values"/><Property Name="Waers1" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Allowed Currency for CI"/><Property Name="Sakto" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="G/L Account"/></EntityType>
+			<EntityType Name="RVBANK" sap:content-version="1">
+				<Key><PropertyRef Name="Banno"/></Key><Property Name="Banno" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Bank Account No." sap:value-list="fixed-values"/><Property Name="Waers2" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Allowed Currency for RV" sap:semantics="currency-code"/><Property Name="Sakto" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="G/L Account"/></EntityType>
+			<EntityType Name="GL" sap:content-version="1">
+				<Key><PropertyRef Name="GlAcc"/></Key><Property Name="GlAcc" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="G/L Account"/><Property Name="BudgCode" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Budget Code"/><Property Name="ShortDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Short Text"/><Property Name="LongDesc" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Long Text"/></EntityType>
+			<EntityType Name="PROJECT_ID" sap:content-version="1">
+				<Key><PropertyRef Name="DeptCode"/><PropertyRef Name="PrjId"/></Key><Property Name="DeptCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Department Code"/><Property Name="PrjId" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Project ID"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="200" sap:label="Description"/></EntityType>
+			<EntityType Name="RV_WORKLIST_PREPARER" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/></Key><Property Name="Bankaccountno" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Bank Account Number"/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 1"/><Property Name="PreEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Preparer's Email"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 3"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Role"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 4"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 5"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Department reference"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="30" sap:filter-restriction="single-value"
+					sap:label="Service/Section/Unit/Category"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:filterable="false" sap:label="Invoice Date"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project/Research Reference"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="130" sap:filter-restriction="single-value"
+					sap:label="Customer Name"/><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="1" sap:filter-restriction="single-value"
+					sap:label="With Non-disclosure" sap:value-list="fixed-values"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="1037" sap:filterable="false" sap:label="Description"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Non-disclosure Agree. Remarks"/><Property Name="Acc" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Cost Ctr/Proj/IO/Bus. Area"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:filterable="false" sap:label="Bank-in Currency"
+					sap:semantics="currency-code"/><Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers" sap:label="Total Bank-in Amount"/><Property Name="Amtinv" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers"
+					sap:label="Amount received for this Invoice"/><Property Name="Bankindate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Bank-in Date"/><Property Name="Paymenttype" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Payment Type"/><Property Name="Bankname" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Bank Name"/><Property Name="Chqno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Cheque No."/><Property Name="ChgDate" Type="Edm.String" Nullable="false" MaxLength="1000" sap:filterable="false"
+					sap:label="Time of last update of RV status"/><Property Name="CtDept" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Department"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Division/Unit"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Created by"/><Property Name="CrtDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false" sap:label="Created on"/><Property Name="CtPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Contact Person"/><Property Name="CtEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="E-Mail Address"/><Property Name="CtTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Phone No."/><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="FnoResp" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="FNO Responsible Person 1"/><Property Name="Remarkinfofo" Type="Edm.String" Nullable="false" MaxLength="254" sap:filterable="false"
+					sap:label="Remarks for FNO’s Information"/><Property Name="Cusapbelnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="CUSAP Document No."/><Property Name="Cusapbudat" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="CUSAP Posting Date"/><Property Name="Sakto" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false" sap:label="G/L Account"/></EntityType>
+			<EntityType Name="RV_WORKLIST_ADMIN" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/></Key><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 1"/><Property Name="PreEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Preparer's Email"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 3"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="FnoResp" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="FNO Responsible Person 1"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 4"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:filterable="false" sap:label="Invoice Date"/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 5"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Department reference"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="30" sap:filter-restriction="single-value"
+					sap:label="Service/Section/Unit/Category"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="130" sap:filterable="false" sap:label="Customer Name"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project/Research Reference"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="1037" sap:filterable="false" sap:label="Description"/><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="1" sap:filter-restriction="single-value"
+					sap:label="With Non-disclosure" sap:value-list="fixed-values"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Non-disclosure Agree. Remarks"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:filterable="false" sap:label="Bank-in Currency"
+					sap:semantics="currency-code"/><Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers" sap:label="Total Bank-in Amount"/><Property Name="Amtinv" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers"
+					sap:label="Amount received for this Invoice"/><Property Name="Bankindate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Bank-in Date"/><Property Name="Acc" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Cost Ctr/Proj/IO/Bus. Area"/><Property Name="Paymenttype" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Payment Type"/><Property Name="Bankname" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Bank Name"/><Property Name="Chqno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Cheque No."/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Preparer Name"/><Property Name="CrtDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false" sap:label="Created on"/><Property Name="ChgDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false" sap:label="Last updated on"/><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="Bankaccountno" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Bank Account No."/><Property Name="Remarkinfofo" Type="Edm.String" Nullable="false" MaxLength="254" sap:filterable="false"
+					sap:label="Remarks for FNO’s Information"/><Property Name="Cusapbelnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="CUSAP Document No."/><Property Name="Cusapbudat" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="CUSAP Posting Date"/></EntityType>
+			<EntityType Name="RV_WORKLIST_ENDORSER" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/></Key><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 1"/><Property Name="PreEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Preparer's Email"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 3"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="FnoResp" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="FNO Responsible Person 1"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 4"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:filterable="false" sap:label="Invoice Date"/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 5"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Department reference"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="30" sap:filter-restriction="single-value"
+					sap:label="Service/Section/Unit/Category"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="130" sap:filterable="false" sap:label="Customer Name"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project/Research Reference"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="1037" sap:filterable="false" sap:label="Description"/><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="1" sap:filter-restriction="single-value"
+					sap:label="With Non-disclosure" sap:value-list="fixed-values"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Non-disclosure Agree. Remarks"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:filterable="false" sap:label="Bank-in Currency"
+					sap:semantics="currency-code"/><Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers" sap:label="Total Bank-in Amount"/><Property Name="Amtinv" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers"
+					sap:label="Amount received for this Invoice"/><Property Name="Bankindate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Bank-in Date"/><Property Name="Acc" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Cost Ctr/Proj/IO/Bus. Area"/><Property Name="Paymenttype" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Payment Type"/><Property Name="Bankname" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Bank Name"/><Property Name="Chqno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Cheque No."/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Preparer Name"/><Property Name="CrtDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false" sap:label="Created on"/><Property Name="ChgDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false" sap:label="Last updated on"/><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="Bankaccountno" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Bank Account No."/><Property Name="Remarkinfofo" Type="Edm.String" Nullable="false" MaxLength="254" sap:filterable="false"
+					sap:label="Remarks for FNO’s Information"/><Property Name="Cusapbelnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="CUSAP Document No."/><Property Name="Cusapbudat" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="CUSAP Posting Date"/></EntityType>
+			<EntityType Name="RV_WORKLIST_GENERAL" sap:content-version="1">
+				<Key><PropertyRef Name="Rvno"/><PropertyRef Name="Acc"/><PropertyRef Name="FnoResp"/></Key><Property Name="Bankaccountno" Type="Edm.String" Nullable="false" MaxLength="100" sap:label="Bank Account Number"/><Property Name="Cusremitcurr" Type="Edm.String" Nullable="false" MaxLength="5" sap:filterable="false" sap:label="Customer Remittance Curr."
+					sap:semantics="currency-code"/><Property Name="Cusremitamt" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:filterable="false" sap:unit="Waers"
+					sap:label="Customer Remittance Amt."/><Property Name="Reference1" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 1"/><Property Name="PreEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="Preparer's Email"/><Property Name="Reference2" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 2"/><Property Name="Reference3" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 3"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="1" sap:filterable="false" sap:label="Role"/><Property Name="Reference4" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 4"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="Reference5" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value" sap:label="Reference 5"/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="Reference6" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Department reference"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="Cino" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Invoice No."/><Property Name="Reference7" Type="Edm.String" Nullable="false" MaxLength="30" sap:filter-restriction="single-value"
+					sap:label="Service/Section/Unit/Category"/><Property Name="Invdate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:filterable="false" sap:label="Invoice Date"/><Property Name="Reference8" Type="Edm.String" Nullable="false" MaxLength="50" sap:filter-restriction="single-value"
+					sap:label="Project/Research Reference"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="130" sap:label="Customer Name"/><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="1" sap:filter-restriction="single-value"
+					sap:label="With Non-disclosure" sap:value-list="fixed-values"/><Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="1037" sap:filterable="false" sap:label="Description"/><Property Name="Reference10" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Non-disclosure Agree. Remarks"/><Property Name="Acc" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Cost Ctr/Proj/IO/Bus. Area"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Bank-in Currency" sap:value-list="fixed-values"
+					sap:semantics="currency-code"/><Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers" sap:label="Total Bank-in Amount"/><Property Name="Amtinv" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers"
+					sap:label="Amount received for this Invoice"/><Property Name="Bankindate" Type="Edm.DateTime" Precision="7" sap:display-format="Date" sap:label="Bank-in Date"/><Property Name="Paymenttype" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Payment Type"/><Property Name="Bankname" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Bank Name"/><Property Name="Chqno" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Cheque No."/><Property Name="ChgDate" Type="Edm.String" Nullable="false" MaxLength="1000" sap:filterable="false"
+					sap:label="Time of last update of RV status"/><Property Name="CtDept" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value" sap:label="Department"/><Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Division/Unit"/><Property Name="CrtBy" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Created by"/><Property Name="CrtDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false" sap:label="Created on"/><Property Name="CtPerson" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Contact Person"/><Property Name="CtEmail" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="E-Mail Address"/><Property Name="CtTel" Type="Edm.String" Nullable="false" MaxLength="35" sap:filterable="false" sap:label="Phone No."/><Property Name="Admin" Type="Edm.String" Nullable="false" MaxLength="24" sap:filterable="false" sap:label="Invoice Admin Party"/><Property Name="FnoResp" Type="Edm.String" Nullable="false" sap:filterable="false" sap:label="FNO Responsible Person 1"/><Property Name="Remarkinfofo" Type="Edm.String" Nullable="false" MaxLength="254" sap:filterable="false"
+					sap:label="Remarks for FNO’s Information"/><Property Name="Cusapbelnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="CUSAP Document No."/><Property Name="Cusapbudat" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="CUSAP Posting Date"/><Property Name="Sakto" Type="Edm.String" Nullable="false" MaxLength="10" sap:filterable="false" sap:label="G/L Account"/></EntityType>
+			<EntityType Name="RV_WORKLIST_FNO" sap:content-version="1">
+				<Key><PropertyRef Name="Rvitem"/><PropertyRef Name="Rvno"/><PropertyRef Name="Zekkn"/><PropertyRef Name="Acc"/></Key><Property Name="Cusapbelnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="CUSAP Document No."/><Property Name="Hkdeq" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:filterable="false" sap:label="HKD Equivalent"/><Property Name="ForwardedToName" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Forwarded To - Name"/><Property Name="Tolhkdeq" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:filterable="false"
+					sap:label="Total HKD Equivalent"/><Property Name="PreparerName" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Preparer Name"/><Property Name="Rvitem" Type="Edm.String" Nullable="false" MaxLength="5" sap:filterable="false" sap:label="RV Item No."/><Property Name="FnoResp1Name" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="FNO Resp. 1 - Name"/><Property Name="Rvno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="RV No."/><Property Name="FnoResp2Name" Type="Edm.String" Nullable="false" MaxLength="70" sap:filter-restriction="single-value"
+					sap:label="FNO Resp. 2 - Name"/><Property Name="Sumitdate" Type="Edm.DateTime" Precision="7" sap:filterable="false" sap:label="Submission Date"/><Property Name="Approved" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Funding Approved" sap:value-list="fixed-values"/><Property Name="Zekkn" Type="Edm.String" Nullable="false" MaxLength="2" sap:filterable="false" sap:label="Seq.No.Acc.Ass."/><Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Status" sap:value-list="fixed-values"/><Property Name="Statustext" Type="Edm.String" Nullable="false" MaxLength="60" sap:filterable="false" sap:label="Status Description"/><Property Name="PreparerDept" Type="Edm.String" Nullable="false" MaxLength="20" sap:filterable="false" sap:label="Preparer dept"/><Property Name="Acc" Type="Edm.String" Nullable="false" MaxLength="100" sap:filter-restriction="single-value"
+					sap:label="Cost Ctr/Proj/IO/Bus. Area"/><Property Name="Accode" Type="Edm.String" Nullable="false" MaxLength="100" sap:filterable="false" sap:label="A/C Code"/><Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Bank-in Currency" sap:value-list="fixed-values"
+					sap:semantics="currency-code"/><Property Name="Amtinv" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers"
+					sap:label="Amount received for this Invoice"/><Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="2" sap:unit="Waers" sap:label="Funded Amount"/><Property Name="Paymenttype" Type="Edm.String" Nullable="false" MaxLength="50" sap:filterable="false" sap:label="Payment Type"/><Property Name="Txz01" Type="Edm.String" Nullable="false" MaxLength="1037" sap:filterable="false" sap:label="Description"/><Property Name="Invno" Type="Edm.String" Nullable="false" sap:label="Invoice No."/><Property Name="ForwardedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:filterable="false" sap:label="Forwarded By"/><Property Name="ForwardedByName" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Forwarded By - Name"/><Property Name="Customername" Type="Edm.String" Nullable="false" MaxLength="130" sap:filterable="false" sap:label="Customer Name"/><Property Name="Createdname" Type="Edm.String" Nullable="false" MaxLength="70" sap:filterable="false" sap:label="Creator Name"/></EntityType>
+			<EntityType Name="BANKNAME" sap:content-version="1">
+				<Key><PropertyRef Name="Bname"/></Key><Property Name="Bname" Type="Edm.String" Nullable="false" MaxLength="70" sap:label="Bank Name"/></EntityType>
+			<EntityType Name="REF9" sap:content-version="1">
+				<Key><PropertyRef Name="Reference9"/></Key><Property Name="Reference9" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="DESC"/><Property Name="DESC" Type="Edm.String" Nullable="false" MaxLength="3"/></EntityType>
+			<EntityType Name="APPST" sap:content-version="1">
+				<Key><PropertyRef Name="SEL"/></Key><Property Name="SEL" Type="Edm.String" Nullable="false" MaxLength="1" sap:text="DESC"/><Property Name="DESC" Type="Edm.String" Nullable="false" MaxLength="50"/></EntityType>
+			<Association Name="CIITEMTOACC" sap:content-version="1"><End Type="ZCI_SRV.CIITEM" Multiplicity="1" Role="FromRole_CIITEMTOACC"/><End Type="ZCI_SRV.CIACC" Multiplicity="*" Role="ToRole_CIITEMTOACC"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CIITEMTOACC"><PropertyRef Name="Cino"/><PropertyRef Name="Ciitem"/></Principal>
+					<Dependent Role="ToRole_CIITEMTOACC"><PropertyRef Name="Cino"/><PropertyRef Name="Ciitem"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="CIHEADTOHIS" sap:content-version="1"><End Type="ZCI_SRV.CIHEAD" Multiplicity="1" Role="FromRole_CIHEADTOHIS"/><End Type="ZCI_SRV.CIHIS" Multiplicity="*" Role="ToRole_CIHEADTOHIS"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CIHEADTOHIS"><PropertyRef Name="Cino"/></Principal>
+					<Dependent Role="ToRole_CIHEADTOHIS"><PropertyRef Name="Cino"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="CIHEADTODOC" sap:content-version="1"><End Type="ZCI_SRV.CIHEAD" Multiplicity="1" Role="FromRole_CIHEADTODOC"/><End Type="ZCI_SRV.CIDOC" Multiplicity="*" Role="ToRole_CIHEADTODOC"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CIHEADTODOC"><PropertyRef Name="Cino"/></Principal>
+					<Dependent Role="ToRole_CIHEADTODOC"><PropertyRef Name="Cino"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="CIHEADTOLOG" sap:content-version="1"><End Type="ZCI_SRV.CIHEAD" Multiplicity="1" Role="FromRole_CIHEADTOLOG"/><End Type="ZCI_SRV.CICHANGELOG" Multiplicity="*" Role="ToRole_CIHEADTOLOG"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CIHEADTOLOG"><PropertyRef Name="Cino"/></Principal>
+					<Dependent Role="ToRole_CIHEADTOLOG"><PropertyRef Name="Cino"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="CIHEADTOPATH" sap:content-version="1"><End Type="ZCI_SRV.CIHEAD" Multiplicity="1" Role="FromRole_CIHEADTOPATH"/><End Type="ZCI_SRV.CIPATH" Multiplicity="*" Role="ToRole_CIHEADTOPATH"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CIHEADTOPATH"><PropertyRef Name="Cino"/></Principal>
+					<Dependent Role="ToRole_CIHEADTOPATH"><PropertyRef Name="Cino"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="CIHEADTOAPP" sap:content-version="1"><End Type="ZCI_SRV.CIHEAD" Multiplicity="1" Role="FromRole_CIHEADTOAPP"/><End Type="ZCI_SRV.CIAPP" Multiplicity="*" Role="ToRole_CIHEADTOAPP"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CIHEADTOAPP"><PropertyRef Name="Cino"/></Principal>
+					<Dependent Role="ToRole_CIHEADTOAPP"><PropertyRef Name="Cino"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="CIHEADTOITEM" sap:content-version="1"><End Type="ZCI_SRV.CIHEAD" Multiplicity="1" Role="FromRole_CIHEADTOITEM"/><End Type="ZCI_SRV.CIITEM" Multiplicity="*" Role="ToRole_CIHEADTOITEM"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CIHEADTOITEM"><PropertyRef Name="Cino"/></Principal>
+					<Dependent Role="ToRole_CIHEADTOITEM"><PropertyRef Name="Cino"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="RVITEMTOACC" sap:content-version="1"><End Type="ZCI_SRV.RVITEM" Multiplicity="1" Role="FromRole_RVITEMTOACC"/><End Type="ZCI_SRV.RVACC" Multiplicity="*" Role="ToRole_RVITEMTOACC"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_RVITEMTOACC"><PropertyRef Name="Rvitem"/><PropertyRef Name="Rvno"/></Principal>
+					<Dependent Role="ToRole_RVITEMTOACC"><PropertyRef Name="Rvitem"/><PropertyRef Name="Rvno"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="RVHEADTOITEM" sap:content-version="1"><End Type="ZCI_SRV.RVHEAD" Multiplicity="1" Role="FromRole_RVHEADTOITEM"/><End Type="ZCI_SRV.RVITEM" Multiplicity="*" Role="ToRole_RVHEADTOITEM"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_RVHEADTOITEM"><PropertyRef Name="Rvno"/></Principal>
+					<Dependent Role="ToRole_RVHEADTOITEM"><PropertyRef Name="Rvno"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="RVHEADTOAPP" sap:content-version="1"><End Type="ZCI_SRV.RVHEAD" Multiplicity="1" Role="FromRole_RVHEADTOAPP"/><End Type="ZCI_SRV.RVAPP" Multiplicity="*" Role="ToRole_RVHEADTOAPP"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_RVHEADTOAPP"><PropertyRef Name="Rvno"/></Principal>
+					<Dependent Role="ToRole_RVHEADTOAPP"><PropertyRef Name="Rvno"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="RVHEADTOHIS" sap:content-version="1"><End Type="ZCI_SRV.RVHEAD" Multiplicity="1" Role="FromRole_RVHEADTOHIS"/><End Type="ZCI_SRV.RVHIS" Multiplicity="*" Role="ToRole_RVHEADTOHIS"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_RVHEADTOHIS"><PropertyRef Name="Rvno"/></Principal>
+					<Dependent Role="ToRole_RVHEADTOHIS"><PropertyRef Name="Rvno"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="RVHEADTOLOG" sap:content-version="1"><End Type="ZCI_SRV.RVHEAD" Multiplicity="1" Role="FromRole_RVHEADTOLOG"/><End Type="ZCI_SRV.RVCHANGELOG" Multiplicity="*" Role="ToRole_RVHEADTOLOG"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_RVHEADTOLOG"><PropertyRef Name="Rvno"/></Principal>
+					<Dependent Role="ToRole_RVHEADTOLOG"><PropertyRef Name="Rvno"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="RVHEADTODOC" sap:content-version="1"><End Type="ZCI_SRV.RVHEAD" Multiplicity="1" Role="FromRole_RVHEADTODOC"/><End Type="ZCI_SRV.RVDOC" Multiplicity="*" Role="ToRole_RVHEADTODOC"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_RVHEADTODOC"><PropertyRef Name="Rvno"/></Principal>
+					<Dependent Role="ToRole_RVHEADTODOC"><PropertyRef Name="Rvno"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="RVHEADTOPATH" sap:content-version="1"><End Type="ZCI_SRV.RVHEAD" Multiplicity="1" Role="FromRole_RVHEADTOPATH"/><End Type="ZCI_SRV.RVPATH" Multiplicity="*" Role="ToRole_RVHEADTOPATH"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_RVHEADTOPATH"><PropertyRef Name="Rvno"/></Principal>
+					<Dependent Role="ToRole_RVHEADTOPATH"><PropertyRef Name="Rvno"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZCI_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="CIHEADSet" EntityType="ZCI_SRV.CIHEAD" sap:content-version="1"/><EntitySet Name="CIITEMSet" EntityType="ZCI_SRV.CIITEM" sap:content-version="1"/><EntitySet Name="CIPATHSet" EntityType="ZCI_SRV.CIPATH" sap:content-version="1"/><EntitySet Name="CIHISSet" EntityType="ZCI_SRV.CIHIS" sap:content-version="1"/><EntitySet Name="CIDOCSet" EntityType="ZCI_SRV.CIDOC" sap:content-version="1"/><EntitySet Name="PDFSet" EntityType="ZCI_SRV.PDF" sap:content-version="1"/><EntitySet Name="ADMINSet" EntityType="ZCI_SRV.ADMIN" sap:content-version="1"/><EntitySet Name="CURRENCYSet" EntityType="ZCI_SRV.CURRENCY" sap:content-version="1"/><EntitySet Name="COSTCENTERSet" EntityType="ZCI_SRV.COSTCENTER" sap:content-version="1"/><EntitySet Name="COUNTRYSet" EntityType="ZCI_SRV.COUNTRY" sap:content-version="1"/><EntitySet Name="MASSREASSIGNCISet" EntityType="ZCI_SRV.MASSREASSIGNCI" sap:content-version="1"/><EntitySet Name="STAFFSet" EntityType="ZCI_SRV.STAFF" sap:content-version="1"/><EntitySet Name="CISTATUSSet" EntityType="ZCI_SRV.CISTATUS" sap:content-version="1"/><EntitySet Name="RVSTATUSSet" EntityType="ZCI_SRV.RVSTATUS" sap:content-version="1"/><EntitySet Name="CI_WORKLIST_PREPARERSet" EntityType="ZCI_SRV.CI_WORKLIST_PREPARER" sap:content-version="1"/><EntitySet Name="CI_WORKLIST_ADMINSet" EntityType="ZCI_SRV.CI_WORKLIST_ADMIN" sap:content-version="1"/><EntitySet Name="CICHANGELOGSet" EntityType="ZCI_SRV.CICHANGELOG" sap:content-version="1"/><EntitySet Name="RVHEADSet" EntityType="ZCI_SRV.RVHEAD" sap:content-version="1"/><EntitySet Name="RVITEMSet" EntityType="ZCI_SRV.RVITEM" sap:content-version="1"/><EntitySet Name="RVDOCSet" EntityType="ZCI_SRV.RVDOC" sap:content-version="1"/><EntitySet Name="RVACCSet" EntityType="ZCI_SRV.RVACC" sap:content-version="1"/><EntitySet Name="RVAPPSet" EntityType="ZCI_SRV.RVAPP" sap:content-version="1"/><EntitySet Name="MASSREASSIGNRVSet" EntityType="ZCI_SRV.MASSREASSIGNRV" sap:content-version="1"/><EntitySet Name="RVHISSet" EntityType="ZCI_SRV.RVHIS" sap:content-version="1"/><EntitySet Name="RVCHANGELOGSet" EntityType="ZCI_SRV.RVCHANGELOG" sap:content-version="1"/><EntitySet Name="CIACCSet" EntityType="ZCI_SRV.CIACC" sap:content-version="1"/><EntitySet Name="CIAPPSet" EntityType="ZCI_SRV.CIAPP" sap:content-version="1"/><EntitySet Name="ROLESet" EntityType="ZCI_SRV.ROLE" sap:content-version="1"/><EntitySet Name="RETURN_MSGSet" EntityType="ZCI_SRV.RETURN_MSG" sap:content-version="1"/><EntitySet Name="LINESSet" EntityType="ZCI_SRV.LINES" sap:content-version="1"/><EntitySet Name="FORWPERSSet" EntityType="ZCI_SRV.FORWPERS" sap:content-version="1"/><EntitySet Name="RVPATHSet" EntityType="ZCI_SRV.RVPATH" sap:content-version="1"/><EntitySet Name="BUAREASet" EntityType="ZCI_SRV.BUAREA" sap:content-version="1"/><EntitySet Name="BUDGETCODESet" EntityType="ZCI_SRV.BUDGETCODE" sap:content-version="1"/><EntitySet Name="COMPANYSet" EntityType="ZCI_SRV.COMPANY" sap:content-version="1"/><EntitySet Name="AUFNRSet" EntityType="ZCI_SRV.AUFNR" sap:content-version="1"/><EntitySet Name="ACCODESet" EntityType="ZCI_SRV.ACCODE" sap:content-version="1"/><EntitySet Name="ENDORSERSet" EntityType="ZCI_SRV.ENDORSER" sap:content-version="1"/><EntitySet Name="USERCollection" EntityType="ZCI_SRV.USER" sap:content-version="1"/><EntitySet Name="PRODUCT_TYPESet" EntityType="ZCI_SRV.PRODUCT_TYPE" sap:content-version="1"/><EntitySet Name="CHANGELOGCISet" EntityType="ZCI_SRV.CHANGELOGCI" sap:content-version="1"/><EntitySet Name="CHANGELOGRVSet" EntityType="ZCI_SRV.CHANGELOGRV" sap:content-version="1"/><EntitySet Name="RPT_OVERDUESet" EntityType="ZCI_SRV.RPT_OVERDUE" sap:content-version="1"/><EntitySet Name="RPT_OSSet" EntityType="ZCI_SRV.RPT_OS" sap:content-version="1"/><EntitySet Name="RPT_CLOSEDSet" EntityType="ZCI_SRV.RPT_CLOSED" sap:content-version="1"/><EntitySet Name="OVERDUESet" EntityType="ZCI_SRV.OVERDUE" sap:content-version="1"/><EntitySet Name="SECTIONSet" EntityType="ZCI_SRV.SECTION" sap:content-version="1"/><EntitySet Name="CI_WORKLIST_GENERALSet" EntityType="ZCI_SRV.CI_WORKLIST_GENERAL" sap:content-version="1"/><EntitySet Name="CI_WORKLIST_ENDORSERSet" EntityType="ZCI_SRV.CI_WORKLIST_ENDORSER" sap:content-version="1"/><EntitySet Name="CIBANKSet" EntityType="ZCI_SRV.CIBANK" sap:content-version="1"/><EntitySet Name="RVBANKSet" EntityType="ZCI_SRV.RVBANK" sap:content-version="1"/><EntitySet Name="GLSet" EntityType="ZCI_SRV.GL" sap:content-version="1"/><EntitySet Name="PROJECT_IDSet" EntityType="ZCI_SRV.PROJECT_ID" sap:content-version="1"/><EntitySet Name="RV_WORKLIST_PREPARERSet" EntityType="ZCI_SRV.RV_WORKLIST_PREPARER" sap:content-version="1"/><EntitySet Name="RV_WORKLIST_ADMINSet" EntityType="ZCI_SRV.RV_WORKLIST_ADMIN" sap:content-version="1"/><EntitySet Name="RV_WORKLIST_ENDORSERSet" EntityType="ZCI_SRV.RV_WORKLIST_ENDORSER" sap:content-version="1"/><EntitySet Name="RV_WORKLIST_GENERALSet" EntityType="ZCI_SRV.RV_WORKLIST_GENERAL" sap:content-version="1"/><EntitySet Name="RV_WORKLIST_FNOSet" EntityType="ZCI_SRV.RV_WORKLIST_FNO" sap:content-version="1"/><EntitySet Name="BANKNAMESet" EntityType="ZCI_SRV.BANKNAME" sap:content-version="1"/><EntitySet Name="REF9Set" EntityType="ZCI_SRV.REF9" sap:content-version="1"/><EntitySet Name="APPSTSet" EntityType="ZCI_SRV.APPST" sap:content-version="1"/>
+				<AssociationSet Name="CIHEADTOLOGSet" Association="ZCI_SRV.CIHEADTOLOG" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="CIHEADSet" Role="FromRole_CIHEADTOLOG"/><End EntitySet="CICHANGELOGSet" Role="ToRole_CIHEADTOLOG"/></AssociationSet>
+				<AssociationSet Name="RVHEADTOPATHSet" Association="ZCI_SRV.RVHEADTOPATH" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="RVHEADSet" Role="FromRole_RVHEADTOPATH"/><End EntitySet="RVPATHSet" Role="ToRole_RVHEADTOPATH"/></AssociationSet>
+				<AssociationSet Name="CIHEADTOTIEMSet" Association="ZCI_SRV.CIHEADTOITEM" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="CIHEADSet" Role="FromRole_CIHEADTOITEM"/><End EntitySet="CIITEMSet" Role="ToRole_CIHEADTOITEM"/></AssociationSet>
+				<AssociationSet Name="RVHEADTODOCSet" Association="ZCI_SRV.RVHEADTODOC" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="RVHEADSet" Role="FromRole_RVHEADTODOC"/><End EntitySet="RVDOCSet" Role="ToRole_RVHEADTODOC"/></AssociationSet>
+				<AssociationSet Name="CIHEADTOAPPSet" Association="ZCI_SRV.CIHEADTOAPP" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="CIHEADSet" Role="FromRole_CIHEADTOAPP"/><End EntitySet="CIAPPSet" Role="ToRole_CIHEADTOAPP"/></AssociationSet>
+				<AssociationSet Name="CIHEADTODOCSet" Association="ZCI_SRV.CIHEADTODOC" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="CIHEADSet" Role="FromRole_CIHEADTODOC"/><End EntitySet="CIDOCSet" Role="ToRole_CIHEADTODOC"/></AssociationSet>
+				<AssociationSet Name="CIHEADTOPATHSet" Association="ZCI_SRV.CIHEADTOPATH" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="CIHEADSet" Role="FromRole_CIHEADTOPATH"/><End EntitySet="CIPATHSet" Role="ToRole_CIHEADTOPATH"/></AssociationSet>
+				<AssociationSet Name="RVHEADTOLOGSet" Association="ZCI_SRV.RVHEADTOLOG" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="RVHEADSet" Role="FromRole_RVHEADTOLOG"/><End EntitySet="RVCHANGELOGSet" Role="ToRole_RVHEADTOLOG"/></AssociationSet>
+				<AssociationSet Name="RVHEADTOHISSet" Association="ZCI_SRV.RVHEADTOHIS" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="RVHEADSet" Role="FromRole_RVHEADTOHIS"/><End EntitySet="RVHISSet" Role="ToRole_RVHEADTOHIS"/></AssociationSet>
+				<AssociationSet Name="CIITEMTOACCSet" Association="ZCI_SRV.CIITEMTOACC" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="CIITEMSet" Role="FromRole_CIITEMTOACC"/><End EntitySet="CIACCSet" Role="ToRole_CIITEMTOACC"/></AssociationSet>
+				<AssociationSet Name="RVHEADTOITEMSet" Association="ZCI_SRV.RVHEADTOITEM" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="RVHEADSet" Role="FromRole_RVHEADTOITEM"/><End EntitySet="RVITEMSet" Role="ToRole_RVHEADTOITEM"/></AssociationSet>
+				<AssociationSet Name="RVITEMTOACCSet" Association="ZCI_SRV.RVITEMTOACC" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="RVITEMSet" Role="FromRole_RVITEMTOACC"/><End EntitySet="RVACCSet" Role="ToRole_RVITEMTOACC"/></AssociationSet>
+				<AssociationSet Name="RVHEADTOAPPSet" Association="ZCI_SRV.RVHEADTOAPP" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="RVHEADSet" Role="FromRole_RVHEADTOAPP"/><End EntitySet="RVAPPSet" Role="ToRole_RVHEADTOAPP"/></AssociationSet>
+				<AssociationSet Name="CIHEADTOHISSet" Association="ZCI_SRV.CIHEADTOHIS" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="1"><End EntitySet="CIHEADSet" Role="FromRole_CIHEADTOHIS"/><End EntitySet="CIHISSet" Role="ToRole_CIHEADTOHIS"/></AssociationSet>
+				<FunctionImport Name="GET_ADMIN" ReturnType="ZCI_SRV.RETURN_MSG" EntitySet="RETURN_MSGSet" m:HttpMethod="GET"><Parameter Name="Input" Type="Edm.String" Mode="In" MaxLength="24"/></FunctionImport>
+				<FunctionImport Name="CHECK_ADMIN_PARTY" ReturnType="ZCI_SRV.RETURN_MSG" EntitySet="RETURN_MSGSet" m:HttpMethod="GET"><Parameter Name="Input" Type="Edm.String" Mode="In" MaxLength="24"/></FunctionImport>
+				<FunctionImport Name="GET_BUDGET_HOLDER" ReturnType="ZCI_SRV.RVACC" EntitySet="RVACCSet" m:HttpMethod="GET"><Parameter Name="Aufnr" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="Gsber" Type="Edm.String" Mode="In" MaxLength="4"/><Parameter Name="I_BUDG_CODE" Type="Edm.String" Mode="In" MaxLength="30"/><Parameter Name="I_CUR_USR_ROLE" Type="Edm.String" Mode="In" MaxLength="1"/><Parameter Name="I_DEPT_CODE" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="Kostl" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="Projn" Type="Edm.String" Mode="In" MaxLength="24"/><Parameter Name="RequestedBy" Type="Edm.String" Mode="In" MaxLength="12"/><Parameter Name="I_GL_AC" Type="Edm.String" Mode="In" MaxLength="10"/></FunctionImport><FunctionImport Name="GET_USERID" ReturnType="ZCI_SRV.USER" EntitySet="USERCollection" m:HttpMethod="GET"/><FunctionImport Name="GET_IND" ReturnType="ZCI_SRV.CIHEAD" EntitySet="CIHEADSet" m:HttpMethod="GET"/>
+				<FunctionImport Name="CHECK_LINES_NO" ReturnType="ZCI_SRV.LINES" EntitySet="LINESSet" m:HttpMethod="GET"><Parameter Name="STR" Type="Edm.String" Mode="In"/></FunctionImport>
+				<FunctionImport Name="GET_EXCHANGE_RATE" ReturnType="ZCI_SRV.RETURN_MSG" EntitySet="RETURN_MSGSet" m:HttpMethod="GET"><Parameter Name="Date" Type="Edm.DateTime" Mode="In" Precision="0"/><Parameter Name="From_curr" Type="Edm.String" Mode="In" MaxLength="5"/></FunctionImport>
+				<FunctionImport Name="EFORM_AAS_VALID" ReturnType="ZCI_SRV.RETURN_MSG" EntitySet="RETURN_MSGSet" m:HttpMethod="GET"><Parameter Name="I_AAS" Type="Edm.String" Mode="In" MaxLength="1"/><Parameter Name="I_BUDAT" Type="Edm.DateTime" Mode="In" Precision="7"/><Parameter Name="I_BUDG_CODE" Type="Edm.String" Mode="In" MaxLength="30"/><Parameter Name="I_BUS_AREA" Type="Edm.String" Mode="In" MaxLength="4"/><Parameter Name="I_COMP_CODE" Type="Edm.String" Mode="In" MaxLength="4"/><Parameter Name="I_COST_CTR" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="I_CUR_USR_ROLE" Type="Edm.String" Mode="In" MaxLength="1"/><Parameter Name="I_DEPT_CODE" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="I_GL_AC" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="I_INT_ORD" Type="Edm.String" Mode="In" MaxLength="12"/><Parameter Name="I_PRD_TYPE" Type="Edm.String" Mode="In" MaxLength="30"/><Parameter Name="I_PRJ_ID" Type="Edm.String" Mode="In" MaxLength="40"/><Parameter Name="I_STAFFAC" Type="Edm.String" Mode="In" MaxLength="12"/><Parameter Name="I_WBS" Type="Edm.String" Mode="In" MaxLength="24"/></FunctionImport><FunctionImport Name="GET_FNO_FORWPERS" ReturnType="Collection(ZCI_SRV.FORWPERS)" EntitySet="FORWPERSSet" m:HttpMethod="GET"/>
+				<FunctionImport Name="change_account" ReturnType="ZCI_SRV.RETURN_MSG" EntitySet="RETURN_MSGSet" m:HttpMethod="GET"><Parameter Name="Banno" Type="Edm.String" Mode="In" MaxLength="50"/></FunctionImport><FunctionImport Name="GET_ROLE" ReturnType="ZCI_SRV.ROLE" EntitySet="ROLESet" m:HttpMethod="GET"/></EntityContainer>
+			<Annotations Target="ZCI_SRV.CIHEAD" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Customername</PropertyPath>
+						<PropertyPath>Waers</PropertyPath>
+						<PropertyPath>Tolamt</PropertyPath>
+						<PropertyPath>Invdate</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.MASSREASSIGNCI" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>PreparedBy</PropertyPath>
+						<PropertyPath>PreparerName</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_PREPARER" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>Invdate</PropertyPath>
+						<PropertyPath>Customername</PropertyPath>
+						<PropertyPath>Waers</PropertyPath>
+						<PropertyPath>Tolamt</PropertyPath>
+						<PropertyPath>Projectref</PropertyPath>
+						<PropertyPath>Agreementno</PropertyPath>
+						<PropertyPath>Remarkdept</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_ADMIN" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>Invdate</PropertyPath>
+						<PropertyPath>Customername</PropertyPath>
+						<PropertyPath>Waers</PropertyPath>
+						<PropertyPath>Tolamt</PropertyPath>
+						<PropertyPath>Projectref</PropertyPath>
+						<PropertyPath>Agreementno</PropertyPath>
+						<PropertyPath>PreparerName</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.MASSREASSIGNRV" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Rvno</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>PreparedBy</PropertyPath>
+						<PropertyPath>PreparerName</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.ENDORSER" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Staffname</PropertyPath>
+						<PropertyPath>Displayname</PropertyPath>
+						<PropertyPath>RptDept</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RPT_OVERDUE" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Department</PropertyPath>
+						<PropertyPath>Division</PropertyPath>
+						<PropertyPath>Customername</PropertyPath>
+						<PropertyPath>Overdue</PropertyPath>
+						<PropertyPath>Waers</PropertyPath>
+						<PropertyPath>Tolamt</PropertyPath>
+						<PropertyPath>CtPerson</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RPT_OS" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Invdate</PropertyPath>
+						<PropertyPath>Customername</PropertyPath>
+						<PropertyPath>Waers</PropertyPath>
+						<PropertyPath>Tolamt</PropertyPath>
+						<PropertyPath>Projectref</PropertyPath>
+						<PropertyPath>Agreementno</PropertyPath>
+						<PropertyPath>Remarkdept</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RPT_CLOSED" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Cldate</PropertyPath>
+						<PropertyPath>Invdate</PropertyPath>
+						<PropertyPath>Customername</PropertyPath>
+						<PropertyPath>Waers</PropertyPath>
+						<PropertyPath>Tolamt</PropertyPath>
+						<PropertyPath>Projectref</PropertyPath>
+						<PropertyPath>Agreementno</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_GENERAL" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>Invdate</PropertyPath>
+						<PropertyPath>Customername</PropertyPath>
+						<PropertyPath>Waers</PropertyPath>
+						<PropertyPath>Tolamt</PropertyPath>
+						<PropertyPath>Projectref</PropertyPath>
+						<PropertyPath>Agreementno</PropertyPath>
+						<PropertyPath>Remarkdept</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_ENDORSER" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>Invdate</PropertyPath>
+						<PropertyPath>Customername</PropertyPath>
+						<PropertyPath>Waers</PropertyPath>
+						<PropertyPath>Tolamt</PropertyPath>
+						<PropertyPath>Projectref</PropertyPath>
+						<PropertyPath>Agreementno</PropertyPath>
+						<PropertyPath>PreparerName</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_PREPARER" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Rvno</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Customername</PropertyPath>
+						<PropertyPath>Bankindate</PropertyPath>
+						<PropertyPath>Bankaccountno</PropertyPath>
+						<PropertyPath>Amount</PropertyPath>
+						<PropertyPath>Amtinv</PropertyPath>
+						<PropertyPath>Acc</PropertyPath>
+						<PropertyPath>Cusapbelnr</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_ADMIN" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Rvno</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>CrtBy</PropertyPath>
+						<PropertyPath>Bankindate</PropertyPath>
+						<PropertyPath>Bankaccountno</PropertyPath>
+						<PropertyPath>Amount</PropertyPath>
+						<PropertyPath>Amtinv</PropertyPath>
+						<PropertyPath>Acc</PropertyPath>
+						<PropertyPath>Cusapbelnr</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_ENDORSER" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Rvno</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>CrtBy</PropertyPath>
+						<PropertyPath>Bankindate</PropertyPath>
+						<PropertyPath>Bankaccountno</PropertyPath>
+						<PropertyPath>Amount</PropertyPath>
+						<PropertyPath>Amtinv</PropertyPath>
+						<PropertyPath>Acc</PropertyPath>
+						<PropertyPath>Cusapbelnr</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_GENERAL" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Rvno</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>Customername</PropertyPath>
+						<PropertyPath>Cino</PropertyPath>
+						<PropertyPath>Bankindate</PropertyPath>
+						<PropertyPath>Bankaccountno</PropertyPath>
+						<PropertyPath>Amount</PropertyPath>
+						<PropertyPath>Amtinv</PropertyPath>
+						<PropertyPath>Acc</PropertyPath>
+						<PropertyPath>Cusapbelnr</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_FNO" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Rvno</PropertyPath>
+						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>Acc</PropertyPath>
+						<PropertyPath>Waers</PropertyPath>
+						<PropertyPath>Amtinv</PropertyPath>
+						<PropertyPath>Amount</PropertyPath>
+						<PropertyPath>FnoResp1Name</PropertyPath>
+						<PropertyPath>FnoResp2Name</PropertyPath>
+						<PropertyPath>Approved</PropertyPath>
+						<PropertyPath>Invno</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CIHEAD/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="CISTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CIHEAD/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="CURRENCYSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Waers"/><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.MASSREASSIGNCI/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="CISTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_PREPARER/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="CISTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_PREPARER/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="CURRENCYSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Waers"/><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_PREPARER/Reference9" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="ref9"/><PropertyValue Property="CollectionPath" String="REF9Set"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Reference9"/><PropertyValue Property="LocalDataProperty" PropertyPath="Reference9"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_ADMIN/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="CISTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_ADMIN/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="CURRENCYSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Waers"/><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_ADMIN/Reference9" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="ref9"/><PropertyValue Property="CollectionPath" String="REF9Set"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Reference9"/><PropertyValue Property="LocalDataProperty" PropertyPath="Reference9"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.MASSREASSIGNRV/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="RVSTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RPT_OVERDUE/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="CURRENCYSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Waers"/><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RPT_OVERDUE/Overdue" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Overdue Days"/><PropertyValue Property="CollectionPath" String="OVERDUESet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Overdue"/><PropertyValue Property="LocalDataProperty" PropertyPath="Overdue"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RPT_OS/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="CURRENCYSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Waers"/><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RPT_CLOSED/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="CURRENCYSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Waers"/><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_GENERAL/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="CISTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_GENERAL/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="CURRENCYSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Waers"/><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_GENERAL/Reference9" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="ref9"/><PropertyValue Property="CollectionPath" String="REF9Set"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Reference9"/><PropertyValue Property="LocalDataProperty" PropertyPath="Reference9"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_ENDORSER/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="CISTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_ENDORSER/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="CURRENCYSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Waers"/><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.CI_WORKLIST_ENDORSER/Reference9" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="ref9"/><PropertyValue Property="CollectionPath" String="REF9Set"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Reference9"/><PropertyValue Property="LocalDataProperty" PropertyPath="Reference9"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_PREPARER/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="RVSTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_PREPARER/Reference9" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="ref9"/><PropertyValue Property="CollectionPath" String="REF9Set"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Reference9"/><PropertyValue Property="LocalDataProperty" PropertyPath="Reference9"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_ADMIN/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="RVSTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_ADMIN/Reference9" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="ref9"/><PropertyValue Property="CollectionPath" String="REF9Set"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Reference9"/><PropertyValue Property="LocalDataProperty" PropertyPath="Reference9"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_ENDORSER/Reference9" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="ref9"/><PropertyValue Property="CollectionPath" String="REF9Set"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Reference9"/><PropertyValue Property="LocalDataProperty" PropertyPath="Reference9"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_ENDORSER/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="RVSTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_GENERAL/Reference9" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="ref9"/><PropertyValue Property="CollectionPath" String="REF9Set"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Reference9"/><PropertyValue Property="LocalDataProperty" PropertyPath="Reference9"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_GENERAL/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="CURRENCYSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Waers"/><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_GENERAL/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="RVSTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_FNO/Approved" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Funding Approved"/><PropertyValue Property="CollectionPath" String="APPSTSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="SEL"/><PropertyValue Property="LocalDataProperty" PropertyPath="Approved"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="DESC"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_FNO/Waers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="CURRENCYSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Waers"/><PropertyValue Property="LocalDataProperty" PropertyPath="Waers"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ltext"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZCI_SRV.RV_WORKLIST_FNO/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="CollectionPath" String="RVSTATUSSet"/><PropertyValue Property="CollectionRoot" String=""/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut"><PropertyValue Property="ValueListProperty" String="Status"/><PropertyValue Property="LocalDataProperty" PropertyPath="Status"/></Record>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Description"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link rel="self"
+				href="https://webidecp-a16zsievws.dispatcher.ap1.hana.ondemand.com/destinations/CUHK/sap/opu/odata/sap/ZCI_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version"
+				href="https://webidecp-a16zsievws.dispatcher.ap1.hana.ondemand.com/destinations/CUHK/sap/opu/odata/sap/ZCI_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

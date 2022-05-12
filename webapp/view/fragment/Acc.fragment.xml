@@ -1,0 +1,74 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog id="accDialog" title="Account Assignments" draggable="true">
+		<content>
+			<Panel width="auto">
+				<headerToolbar>
+					<Toolbar>
+						<Button icon="sap-icon://add" type="Transparent" press="accAddRow" id="addAccBtn"/>
+						<Button icon="sap-icon://less" type="Transparent" press="accRemoveRow" id="removeAccBtn"/>
+						<Button icon="sap-icon://copy" type="Transparent" press="accCopyRow" id="copyAccBtn"
+							tooltip="The selected account assignment item can be copied."/>
+					</Toolbar>
+				</headerToolbar>
+				<Table id="accTable" fixedLayout="true" mode="MultiSelect" items="{path: 'CI>/ITEMTOACC'}">
+					<columns>
+						<Column width="8rem">
+							<Text text="Line Item No"/>
+						</Column>
+						<Column width="8rem">
+							<Text text="Acc. Ass No"/>
+						</Column>
+						<Column width="8rem">
+							<Text text="Curr."/>
+						</Column>
+						<Column width="8rem" hAlign="Right">
+							<Text text="Amount"/>
+						</Column>
+						<Column width="8rem">
+							<Text text="Company Code"/>
+						</Column>
+						<Column width="8rem">
+							<Text text="Business Area"/>
+						</Column>
+						<Column width="8rem">
+							<Text text="Cost Centre"/>
+						</Column>
+						<Column width="8rem">
+							<Text text="Project"/>
+						</Column>
+						<Column width="8rem">
+							<Text text="Internal Order"/>
+						</Column>
+						<Column width="8rem">
+							<Text text="A/C Code"/>
+						</Column>
+						<Column width="8rem">
+							<Text text="Budget Holder"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Input value="{CI>Ciitem}" enabled="false"/>
+								<Input value="{CI>Zekkn}" enabled="true"/>
+								<Input value="{CI>Waers}" enabled="false"/>
+								<Input value="{CI>Amount}" enabled="true"/>
+								<Input value="{CI>Bukrs}" enabled="true"/>
+								<Input value="{CI>Gsber}" enabled="true"/>
+								<Input value="{CI>Kostl}" enabled="true"/>
+								<Input value="{CI>Prjid}" enabled="true"/>
+								<Input value="{CI>Aufnr}" enabled="true"/>
+								<Input value="{CI>Sakto}" enabled="true"/>
+								<Input value="{CI>Budhd}" enabled="true"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Panel>
+		</content>
+		<buttons>
+			<Button text="OK" id="accOkBtn" press="saveAcc"/>
+			<Button text="Cancel" press="closeAccDialog"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

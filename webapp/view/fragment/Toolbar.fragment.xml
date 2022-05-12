@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Toolbar>
+		<!--<Button icon="sap-icon://alert" text="{= ${message>/}.length }" visible="{= ${message>/}.length > 0 }" type="Emphasized"-->
+		<!--	press="onMessagePopoverPress"/>-->
+		<ToolbarSpacer/>
+		<Button icon="sap-icon://create-form" id="createBtn" press="onCreate" tooltip="Create"/>
+		<Button icon="sap-icon://copy" id="copyBtn" press="onCopy" tooltip="Copy"/>
+		<Button icon="sap-icon://delete" id="deleteBtn" press="openDeleteDialog" tooltip="Delete"/>
+		<Button icon="sap-icon://save" id="saveBtn" press="onSave" tooltip="Save"/>
+		<Button icon="sap-icon://add-document" id="uploadBtn" press="openDocDialog" tooltip="Upload Document(s)"/>
+		<Button icon="sap-icon://employee-lookup" id="pathBtn" press="openPathDialog" tooltip="Define Approval Path"/>
+		<Button icon="sap-icon://detail-view" id="previewBtn" press="onPreview" tooltip="Preview"/>
+		<Button icon="sap-icon://print" id="printBtn" press="onPrint" tooltip="Print"/>
+		<Button icon="sap-icon://email" id="emailBtn" press="onEmail" tooltip="Email"/>
+		<Button icon="sap-icon://upload" id="staBtn" press="openSubmitToAdminDialog" tooltip="Submit To Administrator"/>
+		<Button icon="sap-icon://action" id="steBtn" press="submitToEndorser" tooltip="Submit To Endorser"/>
+		<Button icon="sap-icon://reset" id="returnBtn" press="openReturnDialog" tooltip="Return"/>
+		<Button icon="sap-icon://accept" id="approveBtn" press="onAccept" tooltip="Approve"/>
+		<Button icon="sap-icon://inspect-down" id="closeBtn" press="openCloseDialog" tooltip="Close"/>
+		<Button icon="sap-icon://switch-classes" id="switchBtn" press="openPrepareDialog" tooltip="Reassign Preparer"/>
+		<Button icon="sap-icon://request" id="logBtn" press="openLogDialog" tooltip="Change Log"/>
+	</Toolbar>
+</core:FragmentDefinition>

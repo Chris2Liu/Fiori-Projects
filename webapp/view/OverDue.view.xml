@@ -1,0 +1,177 @@
+<mvc:View xmlns:c="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+	xmlns:smarttable="sap.ui.comp.smarttable" xmlns:t="sap.ui.table" controllerName="ZEFORM.Invoice.controller.OverDue"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page showHeader="false">
+				<content>
+					<smartfilterbar:SmartFilterBar id="smartFilterBar" initialise="onInitSmartFilterBar" basicSearchFieldName="Cino,Description"
+						enableBasicSearch="true" entitySet="RPT_OVERDUESet" considerSelectionVariants="true" persistencyKey="OverDue_Filter">
+						<smartfilterbar:controlConfiguration>
+							<smartfilterbar:ControlConfiguration key="Overdue">
+								<smartfilterbar:defaultFilterValues>
+									<smartfilterbar:SelectOption low="1"/>
+								</smartfilterbar:defaultFilterValues>
+							</smartfilterbar:ControlConfiguration>
+						</smartfilterbar:controlConfiguration>
+					</smartfilterbar:SmartFilterBar>
+					<smarttable:SmartTable id="smarttable" entitySet="RPT_OVERDUESet" tableType="Table" smartFilterId="smartFilterBar" editable="false"
+						useExportToExcel="true" header="Overdue Invoices with Aging Analysis Report" showRowCount="true" enableAutoBinding="false"
+						beforeRebindTable="onBeforeRebindTable" useVariantManagement="true" persistencyKey="OverDue_List" beforeExport="onBeforeExport"
+						initialise="onInitSmartTable">
+						<smarttable:customData>
+							<c:CustomData key="p13nDialogSettings" value='\{ "filter": \{ "visible": false} }'/>
+						</smarttable:customData>
+						<smarttable:layoutData>
+							<FlexItemData growFactor="1" baseSize="0%"/>
+						</smarttable:layoutData>
+						<t:Table id="table" sort="sortTable" visibleRowCount="15" threshold="10000">
+							<t:columns>
+								<t:Column width="auto" minWidth="150px" sortProperty="Cino"><Label text="Invoice No."/>
+									<t:template>
+										<Text text="{Cino}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Cino", "leadingProperty": "Cino"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="120px" sortProperty="Invdate"><Label text="Invoice Date"/>
+									<t:template>
+										<Text text="{path: 'Invdate', formatter:'.formatter.formatDate'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Invdate","leadingProperty": "Invdate","type":"date"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Customername"><Label text="Customer Name"/>
+									<t:template>
+										<Text text="{Customername}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Customername", "leadingProperty": "Customername"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Description"><Label text="Invoice Item Description"/>
+									<t:template>
+										<Text text="{Description}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Description", "leadingProperty": "Description"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Duedate"><Label text="Payment Due Date"/>
+									<t:template>
+										<Text text="{path: 'Duedate', formatter:'.formatter.formatDate'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Duedate","leadingProperty": "Duedate","type":"date"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Duedays"><Label text="No. of Days Overdue"/>
+									<t:template>
+										<Text text="{Duedays}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Duedays", "leadingProperty": "Duedays"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Waers"><Label text="Invoice Currency"/>
+									<t:template>
+										<Text text="{Waers}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Waers", "leadingProperty": "Waers"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Tolamt" hAlign="Right"><Label text="Total Invoice Amount"/>
+									<t:template>
+										<Text text="{path: 'Tolamt', type:'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }}"
+											wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Tolamt", "leadingProperty": "Tolamt"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Osamt" hAlign="Right"><Label text="Outstanding Amount"/>
+									<t:template>
+										<Text text="{path: 'Osamt', type:'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Osamt", "leadingProperty": "Osamt"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Overdue1"><Label text="Invoice Overdue &lt; 1 Month"/>
+									<t:template>
+										<!--<Text text="{path: 'Overdue1', formatter:'.formatter.formatX'}" wrapping="false"/>-->
+										<Text text="{path: 'Overdue1'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Overdue1", "leadingProperty": "Overdue1"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="350px" sortProperty="Overdue2"><Label text="Invoice Overdue >= 1 Month AND &lt; 3 Months"/>
+									<t:template>
+										<Text text="{path: 'Overdue2'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Overdue2", "leadingProperty": "Overdue2"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="350px" sortProperty="Overdue3"><Label text="Invoice Overdue >= 3 Months AND &lt; 6 Months"/>
+									<t:template>
+										<Text text="{path: 'Overdue3'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Overdue3", "leadingProperty": "Overdue3"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="350px" sortProperty="Overdue4"><Label text="Invoice Overdue >= 6 Months AND &lt; 9 Months"/>
+									<t:template>
+										<Text text="{path: 'Overdue4'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Overdue4", "leadingProperty": "Overdue4"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="Overdue5"><Label text="Invoice Overdue >= 9 Months AND &lt; 1 Year"/>
+									<t:template>
+										<Text text="{path: 'Overdue5'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Overdue5", "leadingProperty": "Overdue5"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="250px" sortProperty="Overdue6"><Label text="Invoice Overdue >= 1 Year"/>
+									<t:template>
+										<Text text="{path: 'Overdue6'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Overdue6", "leadingProperty": "Overdue6"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="250px" sortProperty="Overdue7"><Label text="Invoice Overdue >= 2 Years"/>
+									<t:template>
+										<Text text="{path: 'Overdue7'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Overdue7", "leadingProperty": "Overdue7"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="250px" sortProperty="Overdue8"><Label text="Invoice Overdue >= 3 Years"/>
+									<t:template>
+										<Text text="{path: 'Overdue8'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Overdue8", "leadingProperty": "Overdue8"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Department"><Label text="Department"/>
+									<t:template>
+										<Text text="{Department}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Department", "leadingProperty": "Department"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Division"><Label text="Division/Unit"/>
+									<t:template>
+										<Text text="{Division}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Division", "leadingProperty": "Division"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="CrtBy"><Label text="Preparer Name"/>
+									<t:template>
+										<Text text="{CrtBy}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CrtBy", "leadingProperty": "CrtBy"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="CtPerson"><Label text="Department Contact Person"/>
+									<t:template>
+										<Text text="{CtPerson}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CtPerson", "leadingProperty": "CtPerson"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="CtEmail"><Label text="Department Contact Person’s Email Address"/>
+									<t:template>
+										<Text text="{CtEmail}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CtEmail", "leadingProperty": "CtEmail"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="CtTel"><Label text="Department Contact Person’s Phone No."/>
+									<t:template>
+										<Text text="{CtTel}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CtTel", "leadingProperty": "CtTel"}'/></t:customData>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</smarttable:SmartTable>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

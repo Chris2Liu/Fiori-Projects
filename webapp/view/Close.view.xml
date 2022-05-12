@@ -1,0 +1,211 @@
+<mvc:View xmlns:c="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+	xmlns:smarttable="sap.ui.comp.smarttable" xmlns:t="sap.ui.table" controllerName="ZEFORM.Invoice.controller.Close"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page showHeader="false">
+				<content>
+					<smartfilterbar:SmartFilterBar id="smartFilterBar" initialise="onInitSmartFilterBar" basicSearchFieldName="Cino,Description"
+						enableBasicSearch="true" entitySet="RPT_CLOSEDSet" considerSelectionVariants="true" persistencyKey="Close_Filter"></smartfilterbar:SmartFilterBar>
+					<smarttable:SmartTable id="smarttable" entitySet="RPT_CLOSEDSet" tableType="Table" smartFilterId="smartFilterBar" editable="false"
+						useExportToExcel="true" header="List of Closed Invoices &amp; Reasons" showRowCount="true" enableAutoBinding="false"
+						beforeRebindTable="onBeforeRebindTable" useVariantManagement="true" persistencyKey="Close_List" beforeExport="onBeforeExport"
+						initialise="onInitSmartTable">
+						<smarttable:customData>
+							<c:CustomData key="p13nDialogSettings" value='\{ "filter": \{ "visible": false} }'/>
+						</smarttable:customData>
+						<smarttable:layoutData>
+							<FlexItemData growFactor="1" baseSize="0%"/>
+						</smarttable:layoutData>
+						<t:Table id="table" sort="sortTable" visibleRowCount="15" threshold="10000">
+							<t:columns>
+								<t:Column width="auto" minWidth="150px" sortProperty="Cino"><Label text="Invoice No."/>
+									<t:template>
+										<Text text="{Cino}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Cino", "leadingProperty": "Cino"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="CloseReason"><Label text="Reason(s) to close customer invoice"/>
+									<t:template>
+										<Text text="{CloseReason}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CloseReason", "leadingProperty": "CloseReason"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Waers"><Label text="Invoice Currency"/>
+									<t:template>
+										<Text text="{Waers}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Waers", "leadingProperty": "Waers"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="Osamt" hAlign="Right"><Label text="Outstanding Invoice Amount (per Posted RV)"/>
+									<t:template>
+										<Text text="{path: 'Osamt', type:'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Osamt", "leadingProperty": "Osamt"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Tolamt" hAlign="Right"><Label text="Total Invoice Amount"/>
+									<t:template>
+										<Text text="{path: 'Tolamt', type:'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }}"
+											wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Tolamt", "leadingProperty": "Tolamt"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Bankinwaers"><Label text="Bank-in Currency"/>
+									<t:template>
+										<Text text="{Bankinwaers}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Bankinwaers", "leadingProperty": "Bankinwaers"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="Amtinv" hAlign="Right"><Label text="Amount received for the invoice"/>
+									<t:template>
+										<Text text="{path: 'Amtinv', type:'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }}"
+											wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Amtinv", "leadingProperty": "Amtinv"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="Lastupdate"><Label text="Time of last update of invoice status"/>
+									<t:template>
+										<Text text="{path: 'Lastupdate', formatter:'.formatter.formatDate'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Lastupdate","leadingProperty": "Lastupdate","type":"date"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Deptartment"><Label text="Department"/>
+									<t:template>
+										<Text text="{Department}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Department", "leadingProperty": "Department"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Division"><Label text="Division/Unit"/>
+									<t:template>
+										<Text text="{Division}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Division", "leadingProperty": "Division"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="CrtBy"><Label text="Preparer Name"/>
+									<t:template>
+										<Text text="{CrtBy}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CrtBy", "leadingProperty": "CrtBy"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="CtPerson"><Label text="Department Contact Person"/>
+									<t:template>
+										<Text text="{CtPerson}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CtPerson", "leadingProperty": "CtPerson"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="CtEmail"><Label text="Department Contact Person’s Email Address"/>
+									<t:template>
+										<Text text="{CtEmail}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CtEmail", "leadingProperty": "CtEmail"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="CtTel"><Label text="Department Contact Person’s Phone No."/>
+									<t:template>
+										<Text text="{CtTel}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CtTel", "leadingProperty": "CtTel"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Admin"><Label text="Invoice Admin Party"/>
+									<t:template>
+										<Text text="{Admin}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Admin", "leadingProperty": "Admin"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="ChgBy"><Label text="Invoice Closed by"/>
+									<t:template>
+										<Text text="{ChgBy}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "ChgBy", "leadingProperty": "ChgBy"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Fnoresp"><Label text="FNO Responsible Person 1"/>
+									<t:template>
+										<Text text="{Fnoresp}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Fnoresp", "leadingProperty": "Fnoresp"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Rvno"><Label text="RV No."/>
+									<t:template>
+										<Text text="{Rvno}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Rvno", "leadingProperty": "Rvno"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Rvstatus"><Label text="RV status of each RV no."/>
+									<t:template>
+										<Text text="{Rvstatus}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Rvstatus", "leadingProperty": "Rvstatus"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="350px" sortProperty="Lastupdates"><Label text="Time of last update of RV status of each RV no. "/>
+									<t:template>
+										<Text text="{Lastupdates}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Lastupdates","leadingProperty": "Lastupdates"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="120px" sortProperty="Invdate"><Label text="Invoice Date"/>
+									<t:template>
+										<Text text="{path: 'Invdate', formatter:'.formatter.formatDate'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Invdate","leadingProperty": "Invdate","type":"date"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Duedate"><Label text="Payment Due Date"/>
+									<t:template>
+										<Text text="{path: 'Duedate', formatter:'.formatter.formatDate'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Duedate","leadingProperty": "Duedate","type":"date"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Bankaccountno"><Label text="Bank Account No."/>
+									<t:template>
+										<Text text="{Bankaccountno}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Bankaccountno", "leadingProperty": "Bankaccountno"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Projectref"><Label text="Project Reference"/>
+									<t:template>
+										<Text text="{Projectref}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Projectref", "leadingProperty": "Projectref"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Agreementno"><Label text="Agreement No./Other Ref."/>
+									<t:template>
+										<Text text="{Agreementno}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Agreementno", "leadingProperty": "Agreementno"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Customername"><Label text="Customer Name"/>
+									<t:template>
+										<Text text="{Customername}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Customername", "leadingProperty": "Customername"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="CustPerson"><Label text="Customer Contact Person"/>
+									<t:template>
+										<Text text="{CustPerson}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CustPerson", "leadingProperty": "CustPerson"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="CustTel"><Label text="Customer Phone No."/>
+									<t:template>
+										<Text text="{CustTel}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CustTel", "leadingProperty": "CustTel"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="CustEmail"><Label text="Customer Email Address"/>
+									<t:template>
+										<Text text="{CustEmail}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CustEmail", "leadingProperty": "CustEmail"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="120px" sortProperty="Cldate"><Label text="Closed Date"/>
+									<t:template>
+										<Text text="{path: 'Cldate', formatter:'.formatter.formatDate'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Cldate","leadingProperty": "Cldate","type":"date"}'/></t:customData>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</smarttable:SmartTable>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

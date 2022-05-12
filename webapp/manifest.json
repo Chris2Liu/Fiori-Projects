@@ -1,0 +1,303 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "ZEFORM.Invoice",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZCI_SRV": {
+				"uri": "/sap/opu/odata/sap/ZCI_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": false
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "ZEFORM.Invoice.view.Master",
+			"type": "XML",
+			"async": true,
+			"id": "Master"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.1",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ZEFORM.Invoice.i18n.i18n"
+				},
+				"preload": true
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "ZCI_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ZEFORM.Invoice.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": []
+				}
+			},
+			"routes": [
+				{
+					"name": "Master",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Master"
+					]
+				},
+				{
+					"name": "CustomerInvoice",
+					"pattern": "CI/{Action}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"CustomerInvoice"
+					]
+				},
+				{
+					"name": "CustomerInvoice_Action",
+					"pattern": "CI/{Cino}/{Role}/{Action}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"CustomerInvoice_Action"
+					]
+				},
+				{
+					"name": "CI_Worklist_Preparer",
+					"pattern": "CI_Worklist_Preparer",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"CI_Worklist_Preparer"
+					]
+				},
+				{
+					"name": "CI_Worklist_Admin",
+					"pattern": "CI_Worklist_Admin",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"CI_Worklist_Admin"
+					]
+				},
+				{
+					"name": "CI_Worklist_Endorser",
+					"pattern": "CI_Worklist_Endorser",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"CI_Worklist_Endorser"
+					]
+				},
+				{
+					"name": "CI_Worklist_General",
+					"pattern": "CI_Worklist_General",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"CI_Worklist_General"
+					]
+				},
+				{
+					"name": "MassReassignCI",
+					"pattern": "MassReassignCI",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"MassReassignCI"
+					]
+				},
+				{
+					"name": "OverDue",
+					"pattern": "OverDue",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"OverDue"
+					]
+				},
+				{
+					"name": "Close",
+					"pattern": "Close",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Close"
+					]
+				},
+				{
+					"name": "Outstanding",
+					"pattern": "Outstanding",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Outstanding"
+					]
+				},
+				{
+					"name": "CI_GUIDE",
+					"pattern": "CI_GUIDE",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"CI_GUIDE"
+					]
+				},
+				{
+					"name": "QuickGuide",
+					"pattern": "QuickGuide",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"QuickGuide"
+					]
+				}
+			],
+			"targets": {
+				"Master": {
+					"viewType": "XML",
+					"viewName": "Master"
+				},
+				"CustomerInvoice": {
+					"viewType": "XML",
+					"viewName": "CustomerInvoice"
+				},
+				"CustomerInvoice_Action": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "CustomerInvoice"
+				},
+				"CI_Worklist_Preparer": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "CI_Worklist_Preparer"
+				},
+				"CI_Worklist_Admin": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "CI_Worklist_Admin"
+				},
+				"CI_Worklist_Endorser": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "CI_Worklist_Endorser"
+				},
+				"CI_Worklist_General": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "CI_Worklist_General"
+				},
+				"MassReassignCI": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "MassReassignCI"
+				},
+				"OverDue": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "OverDue"
+				},
+				"Close": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "Close"
+				},
+				"Outstanding": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "Outstanding"
+				},
+				"CI_GUIDE": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "CI_Guide"
+				},
+				"QuickGuide": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "QuickGuide"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zeform_ci/webapp",
+		"_version": "1.1.0"
+	}
+}
