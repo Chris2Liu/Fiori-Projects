@@ -1,0 +1,42 @@
+/* Enter your custom styles here *//* Enter your custom styles here */
+
+/*.columnStyleUser {*/
+/*    background-color: #5496cd !important*/
+/*}*/
+
+/*.labelUser {*/
+/*    color: white !important;*/
+/*    margin-left: 2px;*/
+/*}*/
+
+.sapMLabel {
+    color: #666666;
+    font-size: 0.875rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    display: inline;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    cursor: text;
+}
+
+.sapMLabelTextWrapper {
+    color: #666;
+    font-size: .875rem;
+    font-family: "72", "72full", Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    white-space: normal;
+    cursor: text;
+}
+
+.sapMSltArrow {
+    position: absolute;
+    text-align: center;
+    width: 2.5rem;
+    line-height: 2.5rem;
+    top: 0;
+    right: 0;
+    color: #346187;
+    font-size: 1rem;
+}

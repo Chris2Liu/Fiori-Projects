@@ -1,0 +1,125 @@
+<mvc:View xmlns:c="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+	xmlns:smarttable="sap.ui.comp.smarttable" xmlns:t="sap.ui.table" controllerName="ZEFORM.PettyCash.controller.Worklist_Preparer"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:smartchart="sap.ui.comp.smartchart" xmlns:sl="sap.ui.comp.navpopover"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<App>
+		<pages>
+			<Page showHeader="false">
+				<content>
+					<smartfilterbar:SmartFilterBar id="smartFilterBar" initialise="onInitSmartFilterBar" basicSearchFieldName="Description"
+						enableBasicSearch="true" entitySet="WORKLIST_PREPARERSet" considerSelectionVariants="true" persistencyKey="Worklist_Preparer_Filter">
+						<smartfilterbar:controlConfiguration>
+							<smartfilterbar:ControlConfiguration key="Acc" label="Cost Ctr/Proj/IO/Bus.Area"/>
+							<smartfilterbar:ControlConfiguration key="Status">
+								<smartfilterbar:defaultFilterValues>
+									<smartfilterbar:SelectOption low="01"/>
+								</smartfilterbar:defaultFilterValues>
+							</smartfilterbar:ControlConfiguration>
+							<smartfilterbar:ControlConfiguration key="Reference1" label="Header Reference 1"></smartfilterbar:ControlConfiguration>
+							<smartfilterbar:ControlConfiguration key="Reference2" label="Header Reference 2"></smartfilterbar:ControlConfiguration>
+							<smartfilterbar:ControlConfiguration key="Reference3" label="Header Reference 3"></smartfilterbar:ControlConfiguration>
+							<smartfilterbar:ControlConfiguration key="Reference4" label="Header Reference 4"></smartfilterbar:ControlConfiguration>
+							<smartfilterbar:ControlConfiguration key="Reference5" label="Header Reference 5"></smartfilterbar:ControlConfiguration>
+						</smartfilterbar:controlConfiguration>
+						<smartfilterbar:layoutData>
+							<FlexItemData shrinkFactor="0"/>
+						</smartfilterbar:layoutData>
+					</smartfilterbar:SmartFilterBar>
+					<smarttable:SmartTable id="smarttable" entitySet="WORKLIST_PREPARERSet" tableType="Table" smartFilterId="smartFilterBar" editable="false"
+						useExportToExcel="true" header="Worklist for Preparer" showRowCount="true" enableAutoBinding="false" beforeRebindTable="onBeforeRebindTable"
+						useVariantManagement="true" persistencyKey="Worklist_Preparer_List" beforeExport="onBeforeExport" initialise="onInitSmartTable">
+						<smarttable:customData>
+							<c:CustomData key="p13nDialogSettings" value='\{ "filter": \{ "visible": false} }'/>
+						</smarttable:customData>
+						<smarttable:layoutData>
+							<FlexItemData growFactor="1" baseSize="0%"/>
+						</smarttable:layoutData>
+						<t:Table id="table" sort="sortTable" visibleRowCount="15" threshold="10000">
+							<t:columns>
+								<t:Column width="auto" minWidth="120px" sortProperty="Claimno"><Label text="{/#WORKLIST_PREPARER/Claimno/@sap:label}"/>
+									<t:template>
+										<Link text="{Claimno}" press="onPressClaimno" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Claimno", "leadingProperty": "Claimno"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="300px" sortProperty="Statustext"><Label text="{/#WORKLIST_PREPARER/Status/@sap:label}"/>
+									<t:template>
+										<Text text="{Statustext}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Statustext", "leadingProperty": "Statustext"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="150px" sortProperty="Tolamt" hAlign="Right"><Label text="{/#WORKLIST_PREPARER/Tolamt/@sap:label}"/>
+									<t:template>
+										<Text text="{path: 'Tolamt', type:'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2 }}"
+											wrapping="false" textAlign="Right"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Tolamt", "leadingProperty": "Tolamt"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="150px" sortProperty="ClaimName"><Label text="{/#WORKLIST_PREPARER/ClaimName/@sap:label}"/>
+									<t:template>
+										<Text text="{ClaimName}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "ClaimName", "leadingProperty": "ClaimName"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="200px" sortProperty="Acc"><Label text="{/#WORKLIST_PREPARER/Acc/@sap:label}"/>
+									<t:template>
+										<Text text="{Acc}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Acc", "leadingProperty": "Acc"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="120px" sortProperty="Account"><Label text="{/#WORKLIST_PREPARER/Account/@sap:label}"/>
+									<t:template>
+										<Text text="{Account}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Account", "leadingProperty": "Account"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="120px" sortProperty="Batchno"><Label text="{/#WORKLIST_PREPARER/Batchno/@sap:label}"/>
+									<t:template>
+										<Text text="{Batchno}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Batchno", "leadingProperty": "Batchno"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px" sortProperty="CrtDate"><Label text="{/#WORKLIST_PREPARER/CrtDate/@sap:label}"/>
+									<t:template>
+										<Text text="{path: 'CrtDate', formatter:'.formatter.formatDate'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "CrtDate", "leadingProperty": "CrtDate","type":"date"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="150px" sortProperty="Admin"><Label text="{/#WORKLIST_PREPARER/Admin/@sap:label}"/>
+									<t:template>
+										<Text text="{Admin}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Admin", "leadingProperty": "Admin"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="150px" sortProperty=""><Label text="{/#WORKLIST_PREPARER/ClaimDatfr/@sap:label}"/>
+									<t:template>
+										<Text text="{path: 'ClaimDatfr', formatter:'.formatter.formatDate'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "ClaimDatfr", "leadingProperty": "ClaimDatfr","type":"date"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="150px" sortProperty="ClaimDatto"><Label text="{/#WORKLIST_PREPARER/ClaimDatto/@sap:label}"/>
+									<t:template>
+										<Text text="{path: 'ClaimDatto', formatter:'.formatter.formatDate'}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "ClaimDatto", "leadingProperty": "ClaimDatto","type":"date"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="120px" sortProperty="Category"><Label text="{/#WORKLIST_PREPARER/Category/@sap:label}"/>
+									<t:template>
+										<Text text="{Category}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "Category", "leadingProperty": "Category"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="120px" sortProperty="PcDept"><Label text="{/#WORKLIST_PREPARER/PcDept/@sap:label}"/>
+									<t:template>
+										<Text text="{PcDept}" wrapping="false"/>
+									</t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "PcDept", "leadingProperty": "PcDept"}'/></t:customData>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+					</smarttable:SmartTable>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

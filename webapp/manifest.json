@@ -1,0 +1,267 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "ZEFORM.PettyCash",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZPC_SRV": {
+				"uri": "/sap/opu/odata/sap/ZPC_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"fullWidth": true
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "ZEFORM.PettyCash.view.Master",
+			"type": "XML",
+			"async": true,
+			"id": "Master"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ZEFORM.PettyCash.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZPC_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ZEFORM.PettyCash.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "Master",
+					"pattern": "",
+					"target": [
+						"Master"
+					]
+				},
+				{
+					"name": "Order",
+					"pattern": "Order/{Action}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Order"
+					]
+				},
+				{
+					"name": "Order_Action",
+					"pattern": "Order/{Pcno}/{Role}/{Action}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Order"
+					]
+				},
+				{
+					"name": "Quick_Guide",
+					"pattern": "Quick_Guide",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Quick_Guide"
+					]
+				},
+				{
+					"name": "Worklist_Preparer",
+					"pattern": "Worklist_Preparer",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Worklist_Preparer"
+					]
+				},
+				{
+					"name": "Worklist_Admin",
+					"pattern": "Worklist_Admin",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Worklist_Admin"
+					]
+				},
+				{
+					"name": "Worklist_ITU",
+					"pattern": "Worklist_ITU",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Worklist_ITU"
+					]
+				},
+				{
+					"name": "Worklist_General",
+					"pattern": "Worklist_General",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Worklist_General"
+					]
+				},
+				{
+					"name": "PC_Confirm",
+					"pattern": "PC_Confirm",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"PC_Confirm"
+					]
+				},
+				{
+					"name": "MassReassign",
+					"pattern": "MassReassign",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"MassReassign"
+					]
+				},
+				{
+					"name": "Float_Maintenance",
+					"pattern": "Float_Maintenance",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Float_Maintenance"
+					]
+				},
+				{
+					"name": "Float_Detail",
+					"pattern": "Float_Detail",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Float_Detail"
+					]
+				}
+			],
+			"targets": {
+				"Master": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "",
+					"viewName": "Master"
+				},
+				"Order": {
+					"viewType": "XML",
+					"viewName": "Order"
+				},
+				"Order_Action": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "Order"
+				},
+				"Worklist_Preparer": {
+					"viewType": "XML",
+					"viewName": "Worklist_Preparer"
+				},
+				"Quick_Guide": {
+					"viewType": "XML",
+					"viewName": "Quick_Guide"
+				},
+				"Worklist_Admin": {
+					"viewType": "XML",
+					"viewName": "Worklist_Admin"
+				},
+				"Worklist_General": {
+					"viewType": "XML",
+					"viewName": "Worklist_General"
+				},
+				"Worklist_ITU": {
+					"viewType": "XML",
+					"viewName": "Worklist_ITU"
+				},
+				"MassReassign": {
+					"viewType": "XML",
+					"viewName": "MassReassign"
+				},
+				"PC_Confirm": {
+					"viewType": "XML",
+					"viewName": "PC_Confirm"
+				},
+				"Float_Maintenance": {
+					"viewType": "XML",
+					"viewName": "Float_Maintenance"
+				},
+				"Float_Detail": {
+					"viewType": "XML",
+					"viewName": "Float_Detail"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zeform_pc/webapp",
+		"_version": "1.1.0"
+	}
+}

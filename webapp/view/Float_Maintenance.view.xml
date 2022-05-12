@@ -1,0 +1,152 @@
+<mvc:View controllerName="ZEFORM.PettyCash.controller.Float_Maintenance" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:c="sap.ui.core" xmlns:u="sap.ui.unified" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:smarttable="sap.ui.comp.smarttable"
+	xmlns:form="sap.ui.layout.form" height="100%">
+	<App>
+		<pages>
+			<Page enableScrolling="false">
+				<content>
+					<smartfilterbar:SmartFilterBar id="smartFilterBar" initialise="onInitSmartFilterBar" basicSearchFieldName="PreparedBy,PreparerName"
+						enableBasicSearch="true" entitySet="MASSREASSIGNSet" assignedFiltersChanged="onAssignedFiltersChanged">
+						<smartfilterbar:controlConfiguration></smartfilterbar:controlConfiguration>
+					</smartfilterbar:SmartFilterBar>
+					<smarttable:SmartTable id="smarttable" entitySet="MASSREASSIGNSet" tableType="Table" smartFilterId="smartFilterBar" editable="false"
+						useExportToExcel="true" header="Mass Reassignment of Preparers" showRowCount="true" beforeRebindTable="onBeforeRebindTable"
+						beforeExport="onBeforeExport" enableAutoBinding="false" useVariantManagement="false" ignoreFromPersonalisation="Status">
+						<smarttable:customData>
+							<c:CustomData key="p13nDialogSettings" value='\{ "filter": \{ "visible": false} }'/>
+						</smarttable:customData>
+						<smarttable:layoutData>
+							<FlexItemData growFactor="1" baseSize="0%"/>
+						</smarttable:layoutData>
+						<smarttable:customToolbar>
+							<OverflowToolbar design="Transparent">
+								<ToolbarSpacer/>
+								<Button text="Create Float" type="Emphasized" press="openCreateFloatDialog"/>
+								<Button text="Update Float" type="Emphasized" press="openUpdateFloatDialog"/>
+							</OverflowToolbar>
+						</smarttable:customToolbar>
+						<t:Table id="table" visibleRowCount="15" threshold="10000" sort="sortTable">
+							<t:columns>
+								<t:Column width="auto" minWidth="100px" sortProperty="PreparedBy"><Label text="Current Preparer"/>
+									<t:template><Text text="{PreparedBy}" wrapping="false"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "PreparedBy", "leadingProperty": "PreparedBy"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px"><Label text="Float Admin Party"/>
+									<t:template><Link text="{PreparerName}" wrapping="false" press="toDetail"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "", "leadingProperty": "PreparerName"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px"><Label text="Float Description"/>
+									<t:template><Text text="{PreparerName}" wrapping="false"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "", "leadingProperty": "PreparerName"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px"><Label text="Float Amount"/>
+									<t:template><Text text="{PreparerName}" wrapping="false"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "", "leadingProperty": "PreparerName"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px"><Label text="Status"/>
+									<t:template><Text text="{PreparerName}" wrapping="false"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "", "leadingProperty": "PreparerName"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px"><Label text="Checker(s)"/>
+									<t:template><Text text="{PreparerName}" wrapping="false"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "", "leadingProperty": "PreparerName"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px"><Label text="Custodian(s)"/>
+									<t:template><Text text="{PreparerName}" wrapping="false"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "", "leadingProperty": "PreparerName"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px"><Label text="Default Cost Ctr / Proj / IO"/>
+									<t:template><Text text="{PreparerName}" wrapping="false"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "", "leadingProperty": "PreparerName"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px"><Label text="Created On"/>
+									<t:template><Text text="{PreparerName}" wrapping="false"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "", "leadingProperty": "PreparerName"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px"><Label text="Last Replenishment Date"/>
+									<t:template><Text text="{PreparerName}" wrapping="false"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "", "leadingProperty": "PreparerName"}'/></t:customData>
+								</t:Column>
+								<t:Column width="auto" minWidth="100px"><Label text="Last Petty Cash Confirmation Date"/>
+									<t:template><Text text="{PreparerName}" wrapping="false"/></t:template>
+									<t:customData><c:CustomData key="p13nData" value='\{"columnKey": "", "leadingProperty": "PreparerName"}'/></t:customData>
+								</t:Column>
+								
+							</t:columns>
+						</t:Table>
+					</smarttable:SmartTable>
+				</content>
+			</Page>
+			<Page>
+				<Dialog id="CreateFloatDialog" title="Create Float" contentWidth="650px">
+					<content>
+						<l:Grid class="sapUiSmallMargin" defaultSpan="XL12 L12 M12 S12">
+							<VBox>
+								<layoutData >
+									<l:GridData span="XL12 L12 M12 S12"/>
+								</layoutData>
+								<form:SimpleForm layout="ResponsiveGridLayout">
+									<Label text="Float Admin Party" required="true">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input required="true">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Float Description">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input required="true">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Default Cost Centre">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input >
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Default Project">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input>
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+									<Label text="Default IO">
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Label>
+									<Input>
+										<layoutData>
+											<l:GridData span="XL6 L6 M6 S6"/>
+										</layoutData>
+									</Input>
+								</form:SimpleForm>
+							</VBox>
+						</l:Grid>
+					</content>
+					<buttons>
+						<Button text="Save" press="prepare"/>
+						<Button text="Cancel" press="cancelPrepare"/>
+					</buttons>
+				</Dialog>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

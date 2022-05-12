@@ -1,0 +1,24 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ZEFORM.PettyCash.controller.Quick_Guide"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title" showHeader="false">
+				<content>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+						<Label text="">
+							<layoutData>
+								<l:GridData span="XL4 L4 M4 S4"/>
+							</layoutData>
+						</Label>
+						<FormattedText
+								htmlText="&lt;ul&gt;&lt;li&gt;&lt;p&gt;PC - &lt;a href=&quot;https://cusap.itsc.cuhk.edu.hk/irj/portal?NavigationTarget=pcd:portal_content/every_user/general/CUSAP/PC/PCGuidesHTML_Page&amp;NavMode=10&quot;&gt;User Guide&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;PC - &lt;a href=&quot;https://cusap.itsc.cuhk.edu.hk/irj/portal?NavigationTarget=pcd:portal_content/every_user/general/CUSAP/PC/PCVideoGuidesHTML_Page&amp;NavMode=10&quot;&gt;Video Demonstrations&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;">
+							<layoutData>
+								<l:GridData span="XL8 L8 M8 S8"/>
+							</layoutData>
+						</FormattedText>
+					</f:SimpleForm>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
